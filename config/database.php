@@ -57,11 +57,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'strict' => true,
-<<<<<<< HEAD
             'engine' => 'InnoDB',
-=======
-            'engine' => null,
->>>>>>> a85a714a48297b40d61508cd7146bbde5b1a7ccf
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
