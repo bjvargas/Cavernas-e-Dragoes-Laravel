@@ -5,16 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Personagem;
+use App\Http\Controllers\Util;
 
 class BookController extends Controller
 {
     private $objUser;
     private $objPersonagem;
+    private $objUtil;
         
     public function __construct()
     {
         $this->objUser=new User();
         $this->objPersonagem=new Personagem();
+        $this->objUtil=new Util();
+
     }
     
       /**
@@ -58,7 +62,8 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        $personagem=$this->objPersonagem->find($id);
+        return view('show',compact('personagem'));
     }
 
     /**
@@ -94,4 +99,4 @@ class BookController extends Controller
     {
         //
     }
-}
+ }

@@ -16,7 +16,7 @@
             <th scope="col">Id Personagem</th>
             <th scope="col">Nome</th>
             <th scope="col">Jogador</th>
-            <th scope="col">Quantidade Personagens</th>
+            <th scope="col">Opções</th>
           </tr>
         </thead>
         <tbody>
@@ -30,15 +30,15 @@
       <td>{{$personagem->nome}}</td>
       <td>{{$user->name}}</td>
       <td>
-          <a ref=""> 
+          <a href="{{url("personagens/$personagem->id")}}">
            <button class="btn btn-dark"> Visualizar </button>
           </a>      
           
-          <a ref="">
+          <a href="">
            <button class="btn btn-primary"> Editar </button>
           </a>      
 
-          <a ref="">
+          <a href="">
            <button class="btn btn-danger"> Deletar </button>
           </a>      
       </td>
