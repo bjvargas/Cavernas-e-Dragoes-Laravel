@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Personagem extends Model
 {
     protected $table='personagem';
+    protected $fillable=['nome', 'classe', 'raca', 'id_user', 'forca', 
+    'destreza', 'constituicao', 'inteligencia', 'sabedoria', 'carisma', 'vida'];
+
     
     public function relUsers()
     {

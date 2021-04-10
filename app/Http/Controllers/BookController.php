@@ -40,7 +40,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('create');
+        $users=$this->objUser->all();
+        return view('create', compact('users'));
     }
 
     /**
@@ -51,7 +52,22 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cad=$this->objPersonagem->create([
+            'nome'=>$request->nome,
+            'classe'=>$request->classe,
+            'raca'=>$request->raca,
+            'forca'=>$request->forca,
+            'destreza'=>$request->destreza,
+            'constituicao'=>$request->constituicao,
+            'inteligencia'=>$request->inteligencia,
+            'sabedoria'=>$request->sabedoria,
+            'carisma'=>$request->carisma,
+            'id_user'=>$request->id_user,
+            'vida'=>$this->objUtil->calculaHpInicial($request->classe, $this->objUtil->converteAtributo($request->constituicao))
+        ]);
+        if($cad){
+            return redirect('personagens');
+        }
     }
 
     /**
