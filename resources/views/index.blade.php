@@ -4,7 +4,7 @@
     <h1 class="text-center">Até mais e Obrigado pelos Peixes...</h1>
 
     <div class="text-center mt-3 mb-4">    
-    <a ref="">
+    <a href="{{url("personagens/create")}}">
               <button class="btn btn-success"> Cadastrar </button>
           </a>       
     </div> 
