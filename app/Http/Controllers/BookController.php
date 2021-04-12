@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request; - POdecequeerro branch7
 use App\Models\User;
 use App\Models\Personagem;
 use App\Http\Controllers\Util;
+use App\Http\Requests\PersonagemRequest;
 
 class BookController extends Controller
 {
@@ -50,7 +51,7 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PersonagemRequest $request)
     {
         $cad=$this->objPersonagem->create([
             'nome'=>$request->nome,
@@ -100,7 +101,7 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PersonagemRequest $request, $id)
     {
         //
     }
