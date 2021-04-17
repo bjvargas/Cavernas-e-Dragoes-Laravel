@@ -1,6 +1,9 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\BookController;
+use App\Http\Controllers\PersonagemController;
+use App\Http\Controllers\Teste;
 
-Route::resource('/personagens', BookController::class);
+Route::resource('/personagens', PersonagemController::class);
+Route::resource('/teste', Teste::class);
+
