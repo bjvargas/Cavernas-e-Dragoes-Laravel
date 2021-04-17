@@ -8,7 +8,7 @@ use App\Models\Personagem;
 use App\Http\Controllers\Util;
 use App\Http\Requests\PersonagemRequest;
 
-class BookController extends Controller
+class PersonagemController extends Controller
 {
     private $objUser;
     private $objPersonagem;
@@ -79,7 +79,7 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        $personagem=$this->objPersonagem->find($id);
+        $personagem = $this->objPersonagem->find($id);
         return view('show',compact('personagem'));
     }
 
@@ -91,7 +91,9 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+       $personagem=$this->objPersonagem->find($id);
+       $users=$this->objUser->all();
+       return view('create',compact('personagem','users'));
     }
 
     /**
@@ -103,7 +105,20 @@ class BookController extends Controller
      */
     public function update(PersonagemRequest $request, $id)
     {
-        //
+        $this->objPersonagem->where(['id'=>$id])->update([
+            'nome'=>$request->nome,
+            'classe'=>$request->classe,
+            'raca'=>$request->raca,
+            'forca'=>$request->forca,
+            'destreza'=>$request->destreza,
+            'constituicao'=>$request->constituicao,
+            'inteligencia'=>$request->inteligencia,
+            'sabedoria'=>$request->sabedoria,
+            'carisma'=>$request->carisma,
+            'id_user'=>$request->id_user,
+            'vida'=>$this->objUtil->calculaHpInicial($request->classe, $this->objUtil->converteAtributo($request->constituicao))
+        ]);
+        return redirect('personagens');
     }
 
     /**

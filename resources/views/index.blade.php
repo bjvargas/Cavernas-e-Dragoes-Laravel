@@ -34,7 +34,7 @@
            <button class="btn btn-dark"> Visualizar </button>
           </a>      
           
-          <a href="">
+          <a href="{{url("personagens/$personagem->id/edit")}}">
            <button class="btn btn-primary"> Editar </button>
           </a>      
 
