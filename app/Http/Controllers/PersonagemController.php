@@ -129,6 +129,7 @@ class PersonagemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $del=$this->objPersonagem->destroy($id);
+        return($del) ? "SIM":"NAO";
     }
  }
