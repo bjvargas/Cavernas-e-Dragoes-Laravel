@@ -27,7 +27,8 @@
     @csrf
     <div class="form-group">
       <select class="form-control" name="id_user" id="id_user" required>
-        <option value="{{$personagem->relUsers->id}}">{{$personagem->relUsers->name}}</option>
+        <option value="@if(isset($personagem)) {{$personagem->relUsers->id}}  @else '' @endif">
+        @if(isset($personagem)) {{$personagem->relUsers->name}}  @else Selecione o Jogador @endif</option>
         @foreach($users as $oUsuario)
           <option value="{{$oUsuario->id}}">{{$oUsuario->name}}</option>
         @endforeach

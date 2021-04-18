@@ -7,6 +7,9 @@ use App\Models\User;
 use App\Models\Personagem;
 use App\Http\Controllers\Util;
 use App\Http\Requests\PersonagemRequest;
+use Illuminate\Pagination\Paginator;
+
+Paginator::useBootstrap();
 
 class PersonagemController extends Controller
 {
@@ -30,7 +33,7 @@ class PersonagemController extends Controller
 
     public function index()
     {
-        $listaPersonagens=$this->objPersonagem->all();
+        $listaPersonagens=$this->objPersonagem->paginate(5);
         return view('index', compact('listaPersonagens'));
     }
 
