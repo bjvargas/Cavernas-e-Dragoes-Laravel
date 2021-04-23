@@ -1,11 +1,12 @@
 @extends('templates.template')
 
-@section('content')
+@section('cabecalho')
     <h1 class="text-center">{{$personagem->nome}}</h1>
     <h3 class="text-center">{{$personagem->raca}}</h3>
     <h3 class="text-center">{{$personagem->classe}}</h3>
     <h3 class="text-center">HP: {{$personagem->vida}}</h3>
-
+	@endsection
+	@section('conteudo')
 
     <div class="col-8 m-auto">
     @php

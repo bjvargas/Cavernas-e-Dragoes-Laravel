@@ -1,7 +1,9 @@
 @extends('templates.template')
 
-@section('content')
+@section('cabecalho')
 <h1 class="text-center">Até mais e Obrigado pelos Peixes...</h1>
+@endsection
+@section('conteudo')
 
 <div class="text-center mt-3 mb-4">
   <a href="{{url("personagens/create")}}">
@@ -9,7 +11,7 @@
   </a>
 </div>
 
-<div class="col-8 m-auto">
+<div class="col-10 m-auto">
 
   @csrf
   <table class="table text-center">
