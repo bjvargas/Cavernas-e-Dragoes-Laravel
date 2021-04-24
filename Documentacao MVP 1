@@ -130,15 +130,17 @@
       RF. 12: Cadastro de Talentos (RF. 8)
       Descrição: CRUD de Talentos baseados no livro do jogador.
       Atentar-se para os pré-requisitos.
-      Entradas: TODO::
+      Entradas: Nome, Descricao.
       
       RF. 13: Cadastro de Equipamentos (RF. 9)
       Descrição: CRUD de Equipamentos baseados no livro do jogador.
-      Entradas: TODO::
+      Entradas: Nome, Preço (Inteiro, MVP 1 usará apenas POs), CA, 
+      Forca, Furtividade, Peso, Dano, Propriedade, Descricao.
       
       RF. 14: Cadastro de Antecedentes (RF. 9)
       Descrição: CRUD de Antecedentes baseados no livro do jogador.
-      Entradas: TODO::
+      Entradas: idiomas, nome, descricao, proeficiencia_pericia, equipamento, caracteristica
+      traco_personalidade, ideal, vinculo, defeito, proeficiencia_ferramenta.
       
             ------------Fim CRIAÇÃO do Personagem------------
     
