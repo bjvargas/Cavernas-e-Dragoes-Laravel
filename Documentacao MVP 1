@@ -78,7 +78,8 @@
         Cd de Resistência a Magia (RF. 7), Magias (RF. 7),
         Talentos (RF. 8),
         Equipamentos (RF. 9),   
-        Antecedentes (RF. 10).      
+        Antecedentes (RF. 10). 
+        Classe de Armadura: 10 + (RF. 9) + o que houver em classe e talentos;
       Processo: O sistema insere todos esses dados no no banco de dados na tabela 
       personagens relacionando o usuario criador a mesma.
 
