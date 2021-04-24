@@ -70,7 +70,7 @@
       
     RF. 4: Criação de Personagens
       Descrição: Os usuários cadastrados podem criar personagens.
-      Entrada: Nome, Raça, Classe, Habilidades, Perícias (Fazer RF. 10 antes, e oferecer somente as restantes e oriundas da classe), 
+      Entrada: Nome, Raça, Classe, Habilidades, Testes de Resistencia e Perícias (Fazer RF. 10 antes, e oferecer somente as restantes e oriundas da classe), 
       Tendência, Pontos de vida (RF. 5), Pontos de Experiência (RF. 5), Iniciativa (RF. 5), 
         Deslocamento (RF. 5), Inspiração (RF. 5), Nivel (RF. 5), Percepção Passiva (RF. 5),
         Altura (RF. 6), Peso (RF. 6), Idade(RF. 6),
