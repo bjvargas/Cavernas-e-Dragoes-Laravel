@@ -129,6 +129,7 @@
       
       RF. 12: Cadastro de Talentos (RF. 8)
       Descrição: CRUD de Talentos baseados no livro do jogador.
+      Atentar-se para os pré-requisitos.
       Entradas: TODO::
       
       RF. 13: Cadastro de Equipamentos (RF. 9)
