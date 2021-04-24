@@ -1,0 +1,196 @@
+1. Introdução
+  1.1. Propósito do Documento
+    Este documento contém a especificação de requisitos para o sistema Cavernas e Dragões, que é uma ferramenta para jogadores de D&D 5e.
+    Este documento é aplicado apenas para o MVP 1 (primeira versão) do sistema.
+ 
+  1.2. Escopo do Produto  
+    O sistema tem como objetivo auxiliar no gerenciamento dew ficha de personagens, como:
+    inserir, excluir, modificar e exibir a ficha completa.
+
+  1.3 Definições e Abreviações  
+    As definições utilizadas neste documento serão abordadas posteriormente no glossário.
+    Abreviações:
+      • RF: requisito funcional;
+      • RNF: requisito não funcional.
+      
+  1.4 Visão Geral do documento  
+      Este documento apresenta uma descrição geral do sistema, e logo em seguida descreve suas
+      funcionalidades especificando as entradas e saídas para todos os requisitos funcionais. Faz também
+      uma descrição sucinta dos requisitos não funcionais contidos neste sistema.
+      
+2. Descrição Geral
+    O sistema Cavernas e Dragões providenciará uma série de ferramentas para gerenciar um personsagem 
+    criado dentro do banco de dados, onde somente os usuários logados terão permissão para inserir, 
+    modificar, excluir e exibir seus personagens, bem como a ficha detalhada de cada um deles. 
+    Haverá uma tela de login, onde usuários novos poderão se cadastrar. Caso o usuário
+    esqueça sua senha, haverá um link onde o usuário poderá recuperar a senha, onde a mesma será
+    enviada pelo e-mail cadastrado.
+    
+  2.1. Perspectiva do Produto
+  
+      O sistema opera com uma máquina servidor que gerencia o banco de dados e controla o
+      acesso das máquinas clientes devidamente logados no sistema.
+      
+  2.2. Funções do Produto
+      Gerenciamento de Personagens: inserir, modificar, excluir e exibir seus personagens, 
+      bem como a ficha detalhada de cada um deles. 
+      Gerenciamento de Usuários: cadastrar, modificar e excluir usuário do sistema.
+      
+  2.3. Restrições Gerais
+      O sistema não permitirá o acesso aos personagens por pessoas não cadastradas no sistema.
+      
+3. Requisitos
+
+  3.1. Requisitos Funcionais
+  
+    RF. 1: Cadastro de Usuário.
+      Descrição: Qualquer novo usuário poderá se cadastrar no sistema.
+      Entrada: Nome de usuário, E-mail, senha e confirmação de senha.
+      Processo: O cadastro será incluído no banco de dados.
+      Saída: Mensagem de confirmação bem sucedido do cadastro caso tenha sido efetuado com
+      sucesso, senão, mensagem de erro.
+
+    RF. 2: Modificação de Cadastrado de Usuário
+      Descrição: Uma vez logado, o usuário entra com o campo onde ele deseja modificar e o modifica.
+      Entrada: Campo desejado e o novo dado.
+      Processo: Atualização do banco de dados.
+      Saída: Mensagem de confirmação bem sucedido da modificação do cadastro caso tenha sido
+      efetuado com sucesso, senão, mensagem de erro.
+      
+    RF. 3: Exclusão do Cadastro de Usuário
+      Descrição: O usuário poderá excluir seu cadastro.
+      Entrada: Confirmação de senha.
+      Processo: O sistema verifica se o usuário é cadastrado, se for o usuário, o usuário
+      será alertado que todos seus personagens serão excluidos juntamente com a conta, 
+      após o confirme, os personagens e a conta serão exluidos.
+      Saída: Mensagem de confirmação bem sucedido da exclusão do cadastro caso tenha sido
+      efetuado com sucesso, senão, mensagem de erro.
+      
+      ------------Início CRIAÇÃO do Personagem------------
+      
+    RF. 4: Criação de Personagens
+      Descrição: Os usuários cadastrados podem criar personagens.
+      Entrada: Nome, Raça, Classe, Habilidades, Perícias (Fazer RF. 10 antes, e oferecer somente as restantes e oriundas da classe), 
+      Tendência, Pontos de vida (RF. 5), Pontos de Experiência (RF. 5), Iniciativa (RF. 5), 
+        Deslocamento (RF. 5), Inspiração (RF. 5), Nivel (RF. 5), Percepção Passiva (RF. 5),
+        Altura (RF. 6), Peso (RF. 6), Idade(RF. 6),
+        Habilidade de Conjuração (RF. 7), Bônus de Ataque de Magia (RF. 7), 
+        Cd de Resistência a Magia (RF. 7), Magias (RF. 7),
+        Talentos (RF. 8),
+        Equipamentos (RF. 9),   
+        Antecedentes (RF. 10).      
+      Processo: O sistema insere todos esses dados no no banco de dados na tabela 
+      personagens relacionando o usuario criador a mesma.
+
+     RF. 5: Atributos iniciais para criação de Personagens (RF. 4)
+      Descrição: Alguns atributos são criados a partir das escolhas iniciais da RF. 4,
+      outros serão setados como default os valores.
+      Entradas: 
+        Pontos de Vida: Dado de Vida da Classe + Modificador de Constituição);
+        Pontos de Experiência: 0 (MVP 1 só permitirá a criação de personagens nível 1);
+        Iniciativa: Modificador de Destreza + o que houver em classe e talentos;
+        Deslocamento: Descrito na raça + o que houver em classe e talentos;
+        Inspiração: 0;
+        Nivel: 1 (MVP 1 só permitirá a criação de personagens nível 1);
+        Percepção Passiva: 10 + modificador de sabedoria + o que houver em classe e talentos;
+      
+      RF. 6: Atributos de aparência (RF. 4)
+      Descrição: Atributos de aparência, normalmente relacionados com a raça, nenhum deles é obrigatório.
+      Entradas: Altura, Peso, Idade.
+      
+      RF. 7: Atributos iniciais para conjuradores (RF. 4)
+      Descrição: Atributos voltados para personagens com magias.
+      Entradas: 
+        Habilidade de Conjuração:  TODO::
+        Bônus de Ataque de Magia:  TODO::
+        Cd de Resistência a Magia: TODO::
+        Magias: Dar escolhe ao jogador vincular ao personagem as magias já criadas (RF. 11),
+        exibir somente as possíveis no nível 1 e para a classe escolhida, respeitando a quantidade.
+      
+      RF. 8: Talentos (RF. 4)
+      Descrição: Opções de talentos para agregar ao personagem.
+      Entradas: Vincular ao personagem talentos de uma lista já criada. (RF. 12)
+     
+      RF. 9: Equipamentos (RF. 4)
+      Descrição: Opções de equipamentos para agregar ao personagem.
+      Entradas: Oferecer a opção dos equipamentos iniciais ou 
+      Vincular ao personagem equipamentos de uma lista já criada. (RF. 13)    
+          
+      RF. 10: Antecedentes (RF. 4)
+      Descrição: Opções de antecedentes baseadas nos backgrounds do livro do jogador.
+      Entradas: Dar a opção do jogador escolher os antecedentes, estes ja devem estar criados em uma lista (RF. 14),
+      todos atributos oriundos dos antecedentes devem ser adicionados na ficha.
+      
+      RF. 11: Cadastro de Magias (RF. 7)
+      Descrição: CRUD de magias, poder adicionar, editar e remover.
+      Entradas: Nome, Descricao, Nível, Escola, Tempo de conjuração, Alcance, componentes, verbal,
+      somatico, material, duração, classe, nivel maior.
+      
+      RF. 12: Cadastro de Talentos (RF. 8)
+      Descrição: CRUD de Talentos baseados no livro do jogador.
+      Entradas: TODO::
+      
+      RF. 13: Cadastro de Equipamentos (RF. 9)
+      Descrição: CRUD de Equipamentos baseados no livro do jogador.
+      Entradas: TODO::
+      
+      RF. 14: Cadastro de Antecedentes (RF. 9)
+      Descrição: CRUD de Antecedentes baseados no livro do jogador.
+      Entradas: TODO::
+      
+            ------------Fim CRIAÇÃO do Personagem------------
+    
+      RF. 15: Modificação do Personagem
+        Descrição: O usuário pode fazer alguma alteração no personagem.
+        Entrada: Campo desejado e o novo dado.
+        Processo: Atualização no banco de dados.
+        Saída: Mensagem de confirmação bem sucedido da modificação caso tenha sido efetuado
+        com sucesso, senão, mensagem de erro.
+        
+      RF. 16: Exclusão do Personagem.
+        Descrição: O usuário pode efetuar a exclusão de personagens.
+        Entrada: Botão excluir de uma lista de personagens ou 
+        botão de excluir dentro dos detalhes do personagem.
+        Processo: Após clicar em excluir, o sistema solicitará uma 
+        confirmação e o personsagem será apagado do banco de dados.
+        Saída: Mensagem de confirmação bem sucedido da exclusão do documento caso tenha sido
+        efetuado com sucesso, senão, mensagem de erro.
+
+       RF. 17: Exibir Personagem.
+          Descrição: O Jogador pode selecionar seu personagem para ver a ficha completa. 
+          Nesta, terá também a opção de alterar (RF. 15) e excluir (RF. 16).          
+          Processo: O sistema busca o personagem selecionado na lista.
+          Saída: Ficha completa.
+
+
+  3.2- Requisitos Não Funcionais
+  
+    3.2.1-Requisitos Organizacionais
+
+      RNF. 1: Software.
+        O SGBD utilizado será o MySQL. Este SGBD apesar de ser gratuito é muito
+        confiável.
+
+      RFN. 2: Linguagem de Programação
+        O Sistema será feito PHP juntamente com Framework Laravel, 
+        que é linguagem de programação muito utilizada no
+        desenvolvimento de WEB sites.
+
+      RFN. 3: Host
+        Ainda em verificação TODO::
+        
+    3.3-Outros Requisitos
+        O sistema funcionará em qualquer plataforma com browser.
+        
+4-Atributos
+
+  4.1-Disponibilidade
+    O sistema deve estar sempre disponível, caso ocorra alguma interrupção ele deve ser
+    restaurado o mais rápido possível.
+
+  4.2-Segurança
+    Como o sistema será via WEB, ele deverá ser o mais seguro possível para que pessoas não
+    autorizadas acessem.
+
+  4.3-Manutenção
+    A manutenção será feita por todos os envolvidos na criação, tanto os Desenvolvedores quanto os Analistas.
