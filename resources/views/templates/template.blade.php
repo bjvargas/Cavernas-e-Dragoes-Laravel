@@ -1,15 +1,32 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Projeto DeD</title>
-    <link rel="stylesheet" href="{{url('assets/bootstrap-5.0.0-beta3-dist/css/bootstrap.min.css')}}">
+    <link rel="shortcut icon" href="favicon.ico" >
+    <title>Cavernas e Dragões</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
-    @yield('content')
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 d-flex justify-content-between">
+     <a class="navbar navbar-expand-lg" href="{{ route('personagens') }}">Personagens</a>
+     @auth
+     <a href="/sair" class="text-danger">Sair</a>
+     @endauth
+     @guest
+     <a href="/entrar">Entrar</a>
+     @endguest
+</nav>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>@yield('cabecalho')</h1>
+        </div>
 
-    <script src="{{url("assets/js/javascript.js")}}"></script>
+        @yield('conteudo')
+        <script src="{{url("assets/js/javascript.js")}}"></script>
+    </div>
 </body>
 </html>

@@ -1,7 +1,10 @@
 @extends('templates.template')
 
-@section('content')
+@section('cabecalho')
 <h1 class="text-center">@if (isset($personagem))Editar Personagem @else Criando Ficha Personagem @endif</h1>
+@endsection
+@section('conteudo')
+
 <div class="col-8 m-auto">
 <!-- 
   @if($errors->any())
