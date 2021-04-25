@@ -114,18 +114,28 @@
 			</div>
 		</div>
 
-		@foreach($magias as $magia)
-		<div class="card-body">
-			<p class="card-text">
-				{{$magia->nome}}
-			</p>
-		</div>
-		@endforeach
 
+<div class="col-10 m-auto">
 
+  <table class="table text-center">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Nome Magia</th>
+        <th scope="col">ALcance</th>
+      </tr>
+    </thead>
+    <tbody>
 
-
-
-
-	</div>
+	@foreach($magias as $magia)
+      <tr>
+        <th scope="row">{{$magia->nome}}</th>
+        <td>{{$magia->alcance}}</td>       
+      </tr>
+      @endforeach
+    </tbody>
+		<a href="{{url("showListaMagias/$personagem->id")}}">
+            <button class="btn btn-dark"> Ver detalher e adicionar novas magias </button>
+          </a>
+  </table>
+</div>
 	@endsection

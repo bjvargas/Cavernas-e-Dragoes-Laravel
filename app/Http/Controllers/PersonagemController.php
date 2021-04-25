@@ -95,12 +95,37 @@ class PersonagemController extends Controller
        ->join('listamagias', 'magias.id', '=', 'listamagias.id_magia')
        ->select('magias.*')
        ->where('listamagias.id_personagem', '=', $id)
-       ->get();
-       
-        //dd($magias);
+       ->get();       
 
          $personagem = $this->objPersonagem->find($id);
         return view('show',compact('personagem', 'magias'));
+    }
+
+     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showListaMagias($id)
+    {
+       
+       $magias = DB::table('magias')
+       ->join('listamagias', 'magias.id', '=', 'listamagias.id_magia')
+       ->select('magias.*', 'listamagias.id as id_cadastro')
+       ->where('listamagias.id_personagem', '=', $id)
+       ->get();
+
+       $todasMagias = DB::table('magias')
+       ->leftJoin('listamagias', 'magias.id', '=', 'listamagias.id_magia')
+       ->select('magias.*', 'listamagias.id_magia')
+       ->whereNotIn('magias.id', function($q) use ($id) {
+        $q->select('id_magia')->from('listamagias')
+        ->where('id_personagem', '=', $id);
+         })->get();
+           
+         $personagem = $this->objPersonagem->find($id);
+        return view('magia.listaMagiasDoPersonagem',compact('personagem', 'magias', 'todasMagias'));
     }
 
     /**
