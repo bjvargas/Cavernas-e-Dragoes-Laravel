@@ -1,15 +1,19 @@
 @extends('templates.template')
 
-@section ('content')
+@section ('cabecalho')
 <h1 class="text-center">Lista de Magias </h1> <hr>
+@endsection
+
+@section('conteudo')
 
 <div class="text-center mt-3 mb-4">
   <a href="{{url("magias/create")}}">
     <button class="btn btn-success"> Cadastrar </button>
   </a>
 </div>
+@csrf
 
-<div class="col-9 m-auto">
+<div class="col-13 m-auto">
 <table class="table text-center">
   <thead>
     <tr>
@@ -38,8 +42,10 @@
             <button class="btn btn-primary"> Editar </button>
           </a>
 
-          <a href="{{url("magias/$magias->id")}}" class="js-del">
+          <a href="{{url("magias/$magias->id")}}" class="js-deu">
             <button class="btn btn-danger"> Deletar </button>
+            </a>
+
       </td>
     </tr>
     @endforeach
@@ -47,3 +53,5 @@
 </table>
 
 </div>
+@endsection
+

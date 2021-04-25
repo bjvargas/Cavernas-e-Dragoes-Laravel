@@ -60,18 +60,35 @@ class MagiasController extends Controller
         return view('magia.showmagia',compact('magia'));
     }
    
-    public function edit()
+    public function edit($id)
     {
-      
+       $magia=$this->objMagia->find($id);
+       return view('magia.createmagia',compact('magia'));      
     }
     
-    public function update()
+    public function update(MagiaRequest $request, $id)
     {
-        
+        $this->objMagia->where(['id'=>$id])->update([
+            'nome'=>$request->nome,
+            'descricao'=>$request->descricao,
+            'level'=>$request->level,
+            'escola'=>$request->escola,
+            'tempodeconjuracao'=>$request->tempodeconjuracao,
+            'alcance'=>$request->alcance,
+            'componentes'=>$request->componentes,
+            'verbal'=>$request->boolean('verbal'),
+            'somatico'=>$request->boolean('somatico'),
+            'material'=>$request->boolean('material'),
+            'duracao'=>$request->duracao,
+            'classe'=>$request->classe,
+            'levelmaior'=>$request->levelmaior
+            ]);
+        return redirect('magias');
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-        
+        $del=$this->objMagia->destroy($id);
+        return($del) ? "SIM":"NAO";
     }
 }

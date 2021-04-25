@@ -10,7 +10,7 @@ class Magia extends Model
     protected $table='magias';
     protected $fillable=['nome', 'descricao', 'level', 'escola', 
     'tempodeconjuracao', 'alcance', 'componentes', 'verbal', 'somatico', 'material',
-    'duracao','classe','levelmaior'];
+    'duracao','classe','levelmaior']; 
 
 
    /* public function relPersonagens()

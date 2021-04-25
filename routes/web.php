@@ -7,10 +7,11 @@ use App\Http\Controllers\PersonagemController;
 use App\Http\Controllers\Teste;
 use Illuminate\Support\Facades\Auth;
 
-Route::resource('/magias', MagiasController::class);
+Route::resource('/magias', MagiasController::class)->middleware('auth');
 Route::resource('/personagens', PersonagemController::class)->middleware('auth');
 
 Route::get('/personagens', [PersonagemController::class, 'index'])->name('personagens')->middleware('auth');
+Route::get('/magias', [MagiasController::class, 'index'])->name('magias')->middleware('auth');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');

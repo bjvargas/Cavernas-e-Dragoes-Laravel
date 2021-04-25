@@ -7,7 +7,10 @@ use App\Models\User;
 use App\Models\Personagem;
 use App\Http\Controllers\Util;
 use App\Http\Requests\PersonagemRequest;
+use App\Models\listamagias;
+use App\Models\Magia;
 use Illuminate\Pagination\Paginator;
+
 
 Paginator::useBootstrap();
 
@@ -16,12 +19,17 @@ class PersonagemController extends Controller
     private $objUser;
     private $objPersonagem;
     private $objUtil;
+    private $objMagia;
+    private $objListaMagias;
         
     public function __construct()
     {
         $this->objUser=new User();
         $this->objPersonagem=new Personagem();
         $this->objUtil=new Util();
+        $this->objMagia=new Magia();
+        $this->objListaMagias=new listamagias();
+
 
     }
     
@@ -82,8 +90,11 @@ class PersonagemController extends Controller
      */
     public function show($id)
     {
-        $personagem = $this->objPersonagem->find($id);
-        return view('show',compact('personagem'));
+
+       $magias = DB::table('lista_magias')->where('id', '1');
+              
+         $personagem = $this->objPersonagem->find($id);
+        return view('show',compact('personagem', 'magias'));
     }
 
     /**

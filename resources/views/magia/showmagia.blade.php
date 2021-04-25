@@ -1,6 +1,6 @@
 @extends('templates.template')
 
-@section ('content')
+@section ('conteudo')
 
     <h1 class="text-center">{{$magia->nome}}</h1> <hr>
     <div class="col-10 m-auto">
@@ -20,3 +20,4 @@
         Classe que utilizam: {{$magia->classe}} <br>
         
     </div>
+    @endsection
