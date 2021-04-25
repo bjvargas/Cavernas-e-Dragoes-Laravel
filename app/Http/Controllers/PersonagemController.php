@@ -10,7 +10,7 @@ use App\Http\Requests\PersonagemRequest;
 use App\Models\listamagias;
 use App\Models\Magia;
 use Illuminate\Pagination\Paginator;
-
+use Illuminate\Support\Facades\DB;
 
 Paginator::useBootstrap();
 
@@ -91,8 +91,14 @@ class PersonagemController extends Controller
     public function show($id)
     {
 
-       $magias = DB::table('lista_magias')->where('id', '1');
-              
+       $magias = DB::table('magias')
+       ->join('listamagias', 'magias.id', '=', 'listamagias.id_magia')
+       ->select('magias.*')
+       ->where('listamagias.id_personagem', '=', $id)
+       ->get();
+       
+        //dd($magias);
+
          $personagem = $this->objPersonagem->find($id);
         return view('show',compact('personagem', 'magias'));
     }
