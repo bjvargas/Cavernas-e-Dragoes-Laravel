@@ -1,10 +1,13 @@
 <?php
+
+use App\Http\Controllers\MagiasController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PersonagemController;
 use App\Http\Controllers\Teste;
 use Illuminate\Support\Facades\Auth;
 
+Route::resource('/magias', MagiasController::class);
 Route::resource('/personagens', PersonagemController::class)->middleware('auth');
 
 Route::get('/personagens', [PersonagemController::class, 'index'])->name('personagens')->middleware('auth');
