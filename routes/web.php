@@ -2,12 +2,16 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PersonagemController;
+use App\Http\Controllers\EquipamentosController;
 use App\Http\Controllers\Teste;
 use Illuminate\Support\Facades\Auth;
 
 Route::resource('/personagens', PersonagemController::class)->middleware('auth');
+Route::resource('/equipamentos', EquipamentosController::class)->middleware('auth');
 
 Route::get('/personagens', [PersonagemController::class, 'index'])->name('personagens')->middleware('auth');
+
+Route::get('/equipamentos', [EquipamentosController::class, 'index'])->name('equipamentos')->middleware('auth');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
