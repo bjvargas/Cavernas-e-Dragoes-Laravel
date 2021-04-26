@@ -14,7 +14,7 @@ class Personagem extends Model
     
     public function relUsers()
     {
-        return $this->hasOne('App\Models\User', 'id','id_user'); //erro
+        return $this->hasOne('App\Models\User', 'id','id_user'); 
     }
     
    use HasFactory;

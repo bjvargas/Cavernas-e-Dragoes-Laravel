@@ -7,7 +7,10 @@ use App\Models\User;
 use App\Models\Personagem;
 use App\Http\Controllers\Util;
 use App\Http\Requests\PersonagemRequest;
+use App\Models\listamagias;
+use App\Models\Magia;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
 
 Paginator::useBootstrap();
 
@@ -16,12 +19,17 @@ class PersonagemController extends Controller
     private $objUser;
     private $objPersonagem;
     private $objUtil;
+    private $objMagia;
+    private $objListaMagias;
         
     public function __construct()
     {
         $this->objUser=new User();
         $this->objPersonagem=new Personagem();
         $this->objUtil=new Util();
+        $this->objMagia=new Magia();
+        $this->objListaMagias=new listamagias();
+
 
     }
     
@@ -82,8 +90,42 @@ class PersonagemController extends Controller
      */
     public function show($id)
     {
-        $personagem = $this->objPersonagem->find($id);
-        return view('show',compact('personagem'));
+
+       $magias = DB::table('magias')
+       ->join('listamagias', 'magias.id', '=', 'listamagias.id_magia')
+       ->select('magias.*')
+       ->where('listamagias.id_personagem', '=', $id)
+       ->get();       
+
+         $personagem = $this->objPersonagem->find($id);
+        return view('show',compact('personagem', 'magias'));
+    }
+
+     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showListaMagias($id)
+    {
+       
+       $magias = DB::table('magias')
+       ->join('listamagias', 'magias.id', '=', 'listamagias.id_magia')
+       ->select('magias.*', 'listamagias.id as id_cadastro')
+       ->where('listamagias.id_personagem', '=', $id)
+       ->get();
+
+       $todasMagias = DB::table('magias')
+       ->leftJoin('listamagias', 'magias.id', '=', 'listamagias.id_magia')
+       ->select('magias.*', 'listamagias.id_magia')
+       ->whereNotIn('magias.id', function($q) use ($id) {
+        $q->select('id_magia')->from('listamagias')
+        ->where('id_personagem', '=', $id);
+         })->get();
+           
+         $personagem = $this->objPersonagem->find($id);
+        return view('magia.listaMagiasDoPersonagem',compact('personagem', 'magias', 'todasMagias'));
     }
 
     /**
