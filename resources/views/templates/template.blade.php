@@ -12,14 +12,13 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 d-flex justify-content-between">
+    @auth
      <a class="navbar navbar-expand-lg" href="{{ route('personagens') }}">Personagens    </a>
-     <a class="navbar navbar-expand-lg" href="{{ route('magias') }}">Magias</a>
-
-     @auth
+     <a class="navbar navbar-expand-lg" href="{{ route('magias') }}">Magias</a>      
      <a href="/sair" class="text-danger">Sair</a>
      @endauth
      @guest
-     <a href="/entrar">Entrar</a>
+     <a>Realize o Login</a>
      @endguest
 </nav>
     <div class="container">
