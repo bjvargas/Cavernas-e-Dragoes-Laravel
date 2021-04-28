@@ -28,15 +28,7 @@
         <form name="formPersonagem" id="formPersonagem" method="post" action="{{url("personagens")}}">
       @endif
     @csrf
-    <div class="form-group">
-      <select class="form-control" name="id_user" id="id_user" required>
-        <option value="@if(isset($personagem)) {{$personagem->relUsers->id}}  @else '' @endif">
-        @if(isset($personagem)) {{$personagem->relUsers->name}}  @else Selecione o Jogador @endif</option>
-        @foreach($users as $oUsuario)
-          <option value="{{$oUsuario->id}}">{{$oUsuario->name}}</option>
-        @endforeach
-      </select>
-    </div><br>
+
     <input class="form-control" type="text" name="nome" id="nome" placeholder="Nome do Personagem:" value="{{$personagem->nome ?? ''}}" required><br>
     <div class="form-group">
       <select class="form-control" name="classe" id="classe" required>

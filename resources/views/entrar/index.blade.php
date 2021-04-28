@@ -40,14 +40,14 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fa fa-envelope"></i></span>
 							</div>
-							<input type="email" name="email" id="email" class="form-control" placeholder="email">
+							<input value="amanda@amanda.com" type="email" name="email" id="email" class="form-control" placeholder="email">
 
 						</div>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
 							</div>
-							<input type="password" name="password" id="password" class="form-control" placeholder="password">
+							<input value="87654321" type="password" name="password" id="password" class="form-control" placeholder="password">
 						</div>
 						<div class="row align-items-center remember">
 							<input type="checkbox">Lembre de mim

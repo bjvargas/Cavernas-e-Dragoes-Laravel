@@ -41,8 +41,14 @@ class PersonagemController extends Controller
 
     public function index()
     {
-        $listaPersonagens=$this->objPersonagem->paginate(5);
-        return view('index', compact('listaPersonagens'));
+
+        $usuario = auth()->user();
+
+        $listaPersonagens= Personagem::where('id_user', '=', $usuario->id)
+        ->paginate(5);
+
+
+        return view('index', compact('listaPersonagens', 'usuario'));
     }
 
     /**
@@ -64,6 +70,8 @@ class PersonagemController extends Controller
      */
     public function store(PersonagemRequest $request)
     {
+        $usuario = auth()->user();
+
         $cad=$this->objPersonagem->create([
             'nome'=>$request->nome,
             'classe'=>$request->classe,
@@ -74,7 +82,7 @@ class PersonagemController extends Controller
             'inteligencia'=>$request->inteligencia,
             'sabedoria'=>$request->sabedoria,
             'carisma'=>$request->carisma,
-            'id_user'=>$request->id_user,
+            'id_user'=>$usuario->id,
             'vida'=>$this->objUtil->calculaHpInicial($request->classe, $this->objUtil->converteAtributo($request->constituicao))
         ]);
         if($cad){
@@ -150,6 +158,8 @@ class PersonagemController extends Controller
      */
     public function update(PersonagemRequest $request, $id)
     {
+        $usuario = auth()->user();
+
         $this->objPersonagem->where(['id'=>$id])->update([
             'nome'=>$request->nome,
             'classe'=>$request->classe,
@@ -160,7 +170,7 @@ class PersonagemController extends Controller
             'inteligencia'=>$request->inteligencia,
             'sabedoria'=>$request->sabedoria,
             'carisma'=>$request->carisma,
-            'id_user'=>$request->id_user,
+            'id_user'=>$usuario->id,
             'vida'=>$this->objUtil->calculaHpInicial($request->classe, $this->objUtil->converteAtributo($request->constituicao))
         ]);
         return redirect('personagens');
