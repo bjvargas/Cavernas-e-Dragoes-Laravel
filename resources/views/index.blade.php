@@ -1,7 +1,7 @@
 @extends('templates.template')
 
 @section('cabecalho')
-<h1 class="text-center">Até mais e Obrigado pelos Peixes...</h1>
+<h1 class="text-center">{{$usuario->name}}</h1>
 @endsection
 @section('conteudo')
 
@@ -19,20 +19,18 @@
       <tr>
         <th scope="col">Id Personagem</th>
         <th scope="col">Nome</th>
-        <th scope="col">Jogador</th>
+        <th scope="col">Classe</th>
         <th scope="col">Opções</th>
       </tr>
     </thead>
     <tbody>
 
       @foreach($listaPersonagens as $personagem)
-      @php
-      $user=$personagem->find($personagem->id)->relUsers;
-      @endphp
+
       <tr>
         <th scope="row">{{$personagem->id}}</th>
         <td>{{$personagem->nome}}</td>
-        <td>{{$user->name}}</td>
+        <td>{{$personagem->classe}}</td>
         <td>
           <a href="{{url("personagens/$personagem->id")}}">
             <button class="btn btn-dark"> Visualizar </button>
