@@ -7,7 +7,9 @@ use App\Models\User;
 use App\Models\Personagem;
 use App\Http\Controllers\Util;
 use App\Http\Requests\PersonagemRequest;
+use App\Models\Equipamentos;
 use App\Models\listamagias;
+use App\Models\listaequipamentos;
 use App\Models\Magia;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +23,7 @@ class PersonagemController extends Controller
     private $objUtil;
     private $objMagia;
     private $objListaMagias;
+    private $objListaEquipamentos;
         
     public function __construct()
     {
@@ -29,6 +32,8 @@ class PersonagemController extends Controller
         $this->objUtil=new Util();
         $this->objMagia=new Magia();
         $this->objListaMagias=new listamagias();
+        $this->objListaEquipamentos=new listaequipamentos();
+        $this->objEquipamento = new Equipamentos();
 
 
     }
@@ -105,37 +110,40 @@ class PersonagemController extends Controller
        ->where('listamagias.id_personagem', '=', $id)
        ->get();       
 
-         $personagem = $this->objPersonagem->find($id);
-        return view('show',compact('personagem', 'magias'));
-    }
-
-     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function showListaMagias($id)
-    {
-       
-       $magias = DB::table('magias')
-       ->join('listamagias', 'magias.id', '=', 'listamagias.id_magia')
-       ->select('magias.*', 'listamagias.id as id_cadastro')
-       ->where('listamagias.id_personagem', '=', $id)
+       $equipamentosD = DB::table('equipamentos')
+       ->join('listaequipamentos', 'equipamentos.id', '=', 'listaequipamentos.id_equipamento')
+       ->select('equipamentos.*', 'listaequipamentos.id as id_cadastro')
+       ->where('listaequipamentos.id_personagem', '=', $id)
+       ->where('equipamentos.tipo', '=', 'Defesa')
        ->get();
 
-       $todasMagias = DB::table('magias')
-       ->leftJoin('listamagias', 'magias.id', '=', 'listamagias.id_magia')
-       ->select('magias.*', 'listamagias.id_magia')
-       ->whereNotIn('magias.id', function($q) use ($id) {
-        $q->select('id_magia')->from('listamagias')
-        ->where('id_personagem', '=', $id);
-         })->get();
-           
+       $equipamentosA = DB::table('equipamentos')
+       ->join('listaequipamentos', 'equipamentos.id', '=', 'listaequipamentos.id_equipamento')
+       ->select('equipamentos.*', 'listaequipamentos.id as id_cadastro')
+       ->where('listaequipamentos.id_personagem', '=', $id)
+       ->where('equipamentos.tipo', '=', 'Ataque')
+       ->get();
+
+       $equipamentosC = DB::table('equipamentos')
+       ->join('listaequipamentos', 'equipamentos.id', '=', 'listaequipamentos.id_equipamento')
+       ->select('equipamentos.*', 'listaequipamentos.id as id_cadastro')
+       ->where('listaequipamentos.id_personagem', '=', $id)
+       ->where('equipamentos.tipo', '=', 'Consumivel')
+       ->get();
+
+       $equipamentosO = DB::table('equipamentos')
+       ->join('listaequipamentos', 'equipamentos.id', '=', 'listaequipamentos.id_equipamento')
+       ->select('equipamentos.*', 'listaequipamentos.id as id_cadastro')
+       ->where('listaequipamentos.id_personagem', '=', $id)
+       ->where('equipamentos.tipo', '=', 'Outro')
+       ->get();
+
          $personagem = $this->objPersonagem->find($id);
-        return view('magia.listaMagiasDoPersonagem',compact('personagem', 'magias', 'todasMagias'));
+        return view('show',compact('personagem', 'magias', 'equipamentosA', 'equipamentosD', 'equipamentosC', 'equipamentosO'));
     }
 
+       
+    
     /**
      * Show the form for editing the specified resource.
      *
