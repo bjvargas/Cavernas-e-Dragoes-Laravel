@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EquipamentoRequest;
 use Illuminate\Pagination\Paginator;
 use App\Models\Equipamentos;
+use App\Models\listaequipamentos;
+use App\Models\Personagem;
+use Illuminate\Support\Facades\DB;
+
 
 Paginator::useBootstrap();
 
@@ -12,11 +16,14 @@ class EquipamentosController extends Controller
 {
 
     private $objEquipamento;
+    private $objListaEquipamentos;
+    private $objPersonagem;
 
     public function __construct(){
 
     $this->objEquipamento=new Equipamentos();
-
+    $this->objListaEquipamentos=new listaequipamentos();
+    $this->objPersonagem=new Personagem();
 
     }
     /**
@@ -78,6 +85,130 @@ class EquipamentosController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showListaEquipamentos($id)
+    {
+       
+       $equipamentos = DB::table('equipamentos')
+       ->join('listaequipamentos', 'equipamentos.id', '=', 'listaequipamentos.id_equipamento')
+       ->select('equipamentos.*', 'listaequipamentos.id as id_cadastro')
+       ->where('listaequipamentos.id_personagem', '=', $id)
+       ->get();
+
+       $todosEquipamentosDefesa=  DB::table('equipamentos')
+       ->select('*')
+       ->where('equipamentos.tipo', '=', 'Defesa')
+       ->get();
+
+       $todosEquipamentosAtaque=  DB::table('equipamentos')
+       ->select('*')
+       ->where('equipamentos.tipo', '=', 'Ataque')
+       ->get();
+
+       $todosEquipamentosConsumivel=  DB::table('equipamentos')
+       ->select('*')
+       ->where('equipamentos.tipo', '=', 'Consumivel')
+       ->get();
+    
+       $todosEquipamentosOutro= $this->objEquipamento->where('tipo', 'Outro');
+
+         $personagem = $this->objPersonagem->find($id);
+        return view('equipamentos.listaEquipamentosDoPersonagem',compact('personagem',
+         'equipamentos',
+         'todosEquipamentosOutro',
+         'todosEquipamentosAtaque',
+         'todosEquipamentosDefesa',
+         'todosEquipamentosConsumivel'));
+    }
+
+    
+
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showListaEquipamentosD($id)
+    {
+       
+       $equipamentos = DB::table('equipamentos')
+       ->join('listaequipamentos', 'equipamentos.id', '=', 'listaequipamentos.id_equipamento')
+       ->select('equipamentos.*', 'listaequipamentos.id as id_cadastro')
+       ->where('listaequipamentos.id_personagem', '=', $id)
+       ->where('equipamentos.tipo', '=', 'Defesa')
+       ->get();
+
+        $todosEquipamentosDefesa=  DB::table('equipamentos')
+       ->select('*')
+       ->where('equipamentos.tipo', '=', 'Defesa')
+       ->get();
+
+         $personagem = $this->objPersonagem->find($id);
+        return view('equipamentos.listaEquipamentosDoPersonagemD',compact('personagem',
+         'equipamentos',
+         'todosEquipamentosDefesa'));
+    }
+
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showListaEquipamentosC($id)
+    {
+       
+       $equipamentos = DB::table('equipamentos')
+       ->join('listaequipamentos', 'equipamentos.id', '=', 'listaequipamentos.id_equipamento')
+       ->select('equipamentos.*', 'listaequipamentos.id as id_cadastro')
+       ->where('listaequipamentos.id_personagem', '=', $id)
+       ->where('equipamentos.tipo', '=', 'Consumivel')
+       ->get();
+
+        $todosEquipamentosConsumivel=  DB::table('equipamentos')
+       ->select('*')
+       ->where('equipamentos.tipo', '=', 'Consumivel')
+       ->get();
+
+         $personagem = $this->objPersonagem->find($id);
+        return view('equipamentos.listaEquipamentosDoPersonagemC',compact('personagem',
+         'equipamentos',
+         'todosEquipamentosConsumivel'));
+    }
+
+     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showListaEquipamentosO($id)
+    {
+       
+       $equipamentos = DB::table('equipamentos')
+       ->join('listaequipamentos', 'equipamentos.id', '=', 'listaequipamentos.id_equipamento')
+       ->select('equipamentos.*', 'listaequipamentos.id as id_cadastro')
+       ->where('listaequipamentos.id_personagem', '=', $id)
+       ->where('equipamentos.tipo', '=', 'Outro')
+       ->get();
+
+        $todosEquipamentosOutro=  DB::table('equipamentos')
+       ->select('*')
+       ->where('equipamentos.tipo', '=', 'Outro')
+       ->get();
+
+         $personagem = $this->objPersonagem->find($id);
+        return view('equipamentos.listaEquipamentosDoPersonagemO',compact('personagem',
+         'equipamentos',
+         'todosEquipamentosOutro'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -124,5 +255,13 @@ class EquipamentosController extends Controller
     {
        $del=$this->objEquipamento->destroy($id);
        return($del) ? "SIM" : "NÂO";
+    }
+
+    public function destroyEquipamentoPersonagem($id)
+    {
+        $del=$this->objListaEquipamentos->destroy($id);
+        return($del) ? "SIM" : "NÂO";
+
+
     }
 }

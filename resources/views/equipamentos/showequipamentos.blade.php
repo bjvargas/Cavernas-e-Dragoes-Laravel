@@ -1,4 +1,4 @@
-@extends('templates.templateequipamento')
+@extends('templates.template')
 
 @section('cabecalho')
     <h1 class="text-center">{{$equipamento->nome}}</h1>

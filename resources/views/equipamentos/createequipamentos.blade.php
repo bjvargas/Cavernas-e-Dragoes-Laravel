@@ -1,4 +1,4 @@
-@extends('templates.templateequipamento')
+@extends('templates.template')
 
 @section('cabecalho')
 <h1 class="text-center">@if (isset($editequipamento))Editar Equipamento @else Novo Equipamento @endif</h1>
@@ -27,7 +27,17 @@
 
     @csrf
     <input class="form-control" type="text" name="nome" id="nome" placeholder="Equipamento: " value="{{$editequipamento->nome ?? ''}}" required><br>
-    <input class="form-control" type="text" name="tipo" id="tipo" placeholder="Tipo: " value="{{$editequipamento->tipo ?? ''}}" required><br>
+    <div class="form-group">
+      <select class="form-control" name="tipo" id="tipo" required>
+      <option value="{{$equipamento->tipo ?? ''}}" >@if(isset($equipamento)) {{$equipamento->tipo}} @else Selecione o tipo de equipamento @endif</option>
+        <option value="Ataque">Ataque</option>
+        <option value="Defesa">Defesa</option>
+        <option value="Consumivel">Consumivel</option>
+        <option value="Outro">Outro</option>
+      </select>
+   
+   
+   
     <input class="form-control" type="integer" name="preco" id="preco" placeholder="Preço: " value="{{$editequipamento->preco ?? ''}}" required><br>
     <input class="form-control" type="integer" name="ca" id="ca" placeholder="CA: " value="{{$editequipamento->ca ?? ''}}" required><br>
     <input class="form-control" type="text" name="forca" id="forca" placeholder="Força: " value="{{$editequipamento->forca ?? ''}}" required><br>

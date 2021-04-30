@@ -14,6 +14,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 d-flex justify-content-between">
      <a class="navbar navbar-expand-lg" href="{{ route('personagens') }}">Personagens    </a>
      <a class="navbar navbar-expand-lg" href="{{ route('magias') }}">Magias</a>
+     <a class="navbar navbar-expand-lg" href="{{ route('equipamentos') }}">Equipamentos</a>
+
 
      @auth
      <a href="/sair" class="text-danger">Sair</a>
