@@ -11,7 +11,6 @@ class MagiasController extends Controller
     private $objMagia;
     private $objListaMagia;
 
-
     public function __construct()
     {
         $this->objMagia = new Magia();
@@ -29,12 +28,7 @@ class MagiasController extends Controller
     {
         return view('magia.createmagia');
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(MagiaRequest $request)
     {
 

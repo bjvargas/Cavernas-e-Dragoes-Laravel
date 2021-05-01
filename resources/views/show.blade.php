@@ -141,12 +141,10 @@
 </div>
 
 <div class="col-10 m-auto">
-<button class="btn btn-dark"> Ver detalhes e adicionar equipamentos </button> <br>
+<a href="{{url("exibirListaEquipamentos/$personagem->id")}}"> <br>
+<button class="btn btn-dark"> Ver Todos equipamentos </button> <br>
+</a>
 </div>
-
-
-
-<label>Equipamentos de Ataque:</label><br>
 <div class="col-10 m-auto">
 
   <table class="table text-center">
@@ -168,13 +166,12 @@
 	
 	
     </tbody>
-		<a href="{{url("showListaEquipamentosA/$personagem->id")}}"> <br>
-            <button class="btn btn-dark"> Ver detalhes e adicionar equipamentos </button> <br>
+		<a href="{{url("exibirListaEquipamentosTipoAtaque/$personagem->id")}}"> <br>
+            <button class="btn btn-dark"> Ver e Add equips Atque </button> <br>
           </a>
   </table>
 </div>
 
-<label>Equipamentos de Defesa: </label><br>
 <div class="col-10 m-auto">
 
   <table class="table text-center">
@@ -196,13 +193,12 @@
 	
 	
     </tbody>
-		<a href="{{url("showListaEquipamentosD/$personagem->id")}}"> <br>
-            <button class="btn btn-dark"> Ver detalhes e adicionar equipamentos </button> <br>
+		<a href="{{url("exibirListaEquipamentosTipoDefesa/$personagem->id")}}"> <br>
+            <button class="btn btn-dark"> Ver e Add equips Def </button> <br>
           </a>
   </table>
 </div>
 
-<label>Equipamentos Consumiveis:</label><br>
 <div class="col-10 m-auto">
 
   <table class="table text-center">
@@ -224,12 +220,11 @@
 	
 	
     </tbody>
-		<a href="{{url("showListaEquipamentosC/$personagem->id")}}"> <br>
-            <button class="btn btn-dark"> Ver detalhes e adicionar equipamentos </button> <br>
+		<a href="{{url("exibirListaEquipamentosTipoConsumivel/$personagem->id")}}"> <br>
+            <button class="btn btn-dark"> Ver e Add equips Consumivel  </button> <br>
           </a>
   </table>
 </div>
-<label>Outros equipamentos:</label><br>
 <div class="col-10 m-auto">
 
   <table class="table text-center">
@@ -251,8 +246,8 @@
 	
 	
     </tbody>
-		<a href="{{url("showListaEquipamentosO/$personagem->id")}}"> <br>
-            <button class="btn btn-dark"> Ver detalhes e adicionar equipamentos </button> <br>
+		<a href="{{url("exibirListaEquipamentosTipoOutro/$personagem->id")}}"> <br>
+            <button class="btn btn-dark"> Ver e Add equips Outros  </button> <br>
           </a>
   </table>
 </div>

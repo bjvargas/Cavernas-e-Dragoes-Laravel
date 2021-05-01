@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ListaMagiaRequest;
 use App\Models\listamagias;
-use Illuminate\Http\Request;
+use App\Models\Personagem;
 use Illuminate\Support\Facades\DB;
 
 class ListaMagiasController extends Controller
 {
     private $objListaMagia;
+    private $objPersonagem;
 
     public function __construct()
     {
         $this->objListaMagia = new listamagias();
+        $this->objPersonagem=new Personagem();
+
     }
 
     public function store(ListaMagiaRequest $request)

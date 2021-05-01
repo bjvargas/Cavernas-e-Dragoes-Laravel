@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\Http\Request; - POdecequeerro branch7
 use App\Models\User;
 use App\Models\Personagem;
 use App\Http\Controllers\Util;
 use App\Http\Requests\PersonagemRequest;
 use App\Models\Equipamentos;
-use App\Models\listamagias;
-use App\Models\listaequipamentos;
-use App\Models\Magia;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 
@@ -21,58 +17,29 @@ class PersonagemController extends Controller
     private $objUser;
     private $objPersonagem;
     private $objUtil;
-    private $objMagia;
-    private $objListaMagias;
-    private $objListaEquipamentos;
         
     public function __construct()
     {
         $this->objUser=new User();
         $this->objPersonagem=new Personagem();
         $this->objUtil=new Util();
-        $this->objMagia=new Magia();
-        $this->objListaMagias=new listamagias();
-        $this->objListaEquipamentos=new listaequipamentos();
         $this->objEquipamento = new Equipamentos();
-
-
     }
     
-      /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
     public function index()
     {
-
         $usuario = auth()->user();
-
         $listaPersonagens= Personagem::where('id_user', '=', $usuario->id)
         ->paginate(5);
-
-
         return view('index', compact('listaPersonagens', 'usuario'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $users=$this->objUser->all();
         return view('create', compact('users'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(PersonagemRequest $request)
     {
         $usuario = auth()->user();
@@ -95,12 +62,6 @@ class PersonagemController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
 
@@ -142,14 +103,6 @@ class PersonagemController extends Controller
         return view('show',compact('personagem', 'magias', 'equipamentosA', 'equipamentosD', 'equipamentosC', 'equipamentosO'));
     }
 
-       
-    
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
        $personagem=$this->objPersonagem->find($id);
@@ -157,13 +110,6 @@ class PersonagemController extends Controller
        return view('create',compact('personagem','users'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(PersonagemRequest $request, $id)
     {
         $usuario = auth()->user();
@@ -184,12 +130,6 @@ class PersonagemController extends Controller
         return redirect('personagens');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $del=$this->objPersonagem->destroy($id);
