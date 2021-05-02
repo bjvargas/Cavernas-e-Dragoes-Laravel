@@ -7,7 +7,7 @@
 
 @section('conteudo')
 
-<form name="formListaEquipamento" id="formListaEquipamento" method="post" action="{{url("listaequipamentos")}}">
+<form name="formListaEquipamento" id="formListaEquipamento" method="post" action="{{url("listaequipamentosAtaque")}}">
   @csrf
   <div class="form-group">
     <Label>Equipamentos de Ataque:</LAbel>
