@@ -48,6 +48,10 @@ Route::get('/equipamentos', [EquipamentosController::class, 'index'])
 ->middleware('auth');
 
 Route::post('/listaequipamentos', [ListaEquipamentosController::class, 'store']);
+Route::post('/listaequipamentosAtaque', [ListaEquipamentosTipoAtaqueController::class, 'store']);
+Route::post('/listaequipamentosDefesa', [ListaEquipamentosTipoDefesaController::class, 'store']);
+Route::post('/listaequipamentosConsumivel', [ListaEquipamentosTipoConsumivelController::class, 'store']);
+Route::post('/listaequipamentosOutro', [ListaEquipamentosTipoOutroController::class, 'store']);
 
 Route::get('/exibirListaEquipamentos/{id}', [ListaEquipamentosController::class, 'exibirListaEquipamentos'])
 ->name('exibirListaEquipamentos')

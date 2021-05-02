@@ -25,7 +25,8 @@ class EquipamentosController extends Controller
 
     public function index()
     {
-        $listaEquipamentos=$this->objEquipamento->all();
+        $listaEquipamentos=$this->objEquipamento
+        ->paginate(10);
         return view('equipamentos.equipamentos', compact('listaEquipamentos'));
     }
 

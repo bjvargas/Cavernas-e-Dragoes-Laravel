@@ -47,6 +47,6 @@
       @endforeach
     </tbody>
   </table>
- 
+  {{$listaEquipamentos->links()}}
 </div>
 @endsection
