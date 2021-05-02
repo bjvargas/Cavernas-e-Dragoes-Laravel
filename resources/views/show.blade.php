@@ -117,6 +117,7 @@
 			</div>
 		</div>
 
+<br>
 
 <div class="col-10 m-auto">
 
@@ -136,8 +137,120 @@
       </tr>
       @endforeach
     </tbody>
-		<a href="{{url("showListaMagias/$personagem->id")}}">
+		<a href="{{url("exibirListaMagias/$personagem->id")}}">
             <button class="btn btn-dark"> Ver detalher e adicionar novas magias </button>
+          </a>
+  </table>
+</div>
+
+<div class="col-10 m-auto">
+<a href="{{url("exibirListaEquipamentos/$personagem->id")}}"> <br>
+<button class="btn btn-dark"> Ver Todos equipamentos </button> <br>
+</a>
+</div>
+<div class="col-10 m-auto">
+
+  <table class="table text-center">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Equipamento</th>
+        <th scope="col">Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+<br>
+	@foreach($equipamentosA as $equipamento)
+     	<tr>
+        	<th scope="row">{{$equipamento->nome}}</th>
+       		<td>{{$equipamento->tipo}}</td>       
+      </tr>
+				
+    @endforeach
+	
+	
+    </tbody>
+		<a href="{{url("exibirListaEquipamentosTipoAtaque/$personagem->id")}}"> <br>
+            <button class="btn btn-dark"> Ver e Add equips Atque </button> <br>
+          </a>
+  </table>
+</div>
+
+<div class="col-10 m-auto">
+
+  <table class="table text-center">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Equipamento</th>
+        <th scope="col">Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+<br>
+	@foreach($equipamentosD as $equipamento)
+     	<tr>
+        	<th scope="row">{{$equipamento->nome}}</th>
+       		<td>{{$equipamento->tipo}}</td>       
+      </tr>
+				
+    @endforeach
+	
+	
+    </tbody>
+		<a href="{{url("exibirListaEquipamentosTipoDefesa/$personagem->id")}}"> <br>
+            <button class="btn btn-dark"> Ver e Add equips Def </button> <br>
+          </a>
+  </table>
+</div>
+
+<div class="col-10 m-auto">
+
+  <table class="table text-center">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Equipamento</th>
+        <th scope="col">Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+<br>
+	@foreach($equipamentosC as $equipamento)
+     	<tr>
+        	<th scope="row">{{$equipamento->nome}}</th>
+       		<td>{{$equipamento->tipo}}</td>       
+      </tr>
+				
+    @endforeach
+	
+	
+    </tbody>
+		<a href="{{url("exibirListaEquipamentosTipoConsumivel/$personagem->id")}}"> <br>
+            <button class="btn btn-dark"> Ver e Add equips Consumivel  </button> <br>
+          </a>
+  </table>
+</div>
+<div class="col-10 m-auto">
+
+  <table class="table text-center">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Equipamento</th>
+        <th scope="col">Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+<br>
+	@foreach($equipamentosO as $equipamento)
+     	<tr>
+        	<th scope="row">{{$equipamento->nome}}</th>
+       		<td>{{$equipamento->tipo}}</td>       
+      </tr>
+				
+    @endforeach
+	
+	
+    </tbody>
+		<a href="{{url("exibirListaEquipamentosTipoOutro/$personagem->id")}}"> <br>
+            <button class="btn btn-dark"> Ver e Add equips Outros  </button> <br>
           </a>
   </table>
 </div>
