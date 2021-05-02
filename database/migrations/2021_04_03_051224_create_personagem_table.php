@@ -17,8 +17,9 @@ class CreatePersonagemTable extends Migration
             $table->increments('id');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('id_classe')->unsigned();
+            $table->foreign('id_classe')->references('id')->on('classes')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nome');
-            $table->string('classe');
             $table->string('raca');
             $table->integer('forca');
             $table->integer('destreza');

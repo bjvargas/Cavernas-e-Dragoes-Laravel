@@ -18,24 +18,12 @@ class Util extends Controller
 
     /**
      * Calcula hp inicial do char.
-     * string $classe e int $modConstituicao .
+     * integer $hp e int $modConstituicao .
      * return: Modificador
      */
-    public function calculaHpInicial($classe, $modConstituicao)
+    public function calculaHpInicial($dadoVida, $modConstituicao)
     {
-        switch ($classe) {
-            case "Guerreiro":
-                return (10 + $modConstituicao);
-                break;
-            case "Barbaro":
-                return (12 + $modConstituicao);
-                break;
-            case "Bardo":
-                return (8 + $modConstituicao);
-                break;
-            case "Feiticeiro":
-                return (6 + $modConstituicao);
-                break;
-        }
+        
+        return $dadoVida + $modConstituicao;
     }
 }

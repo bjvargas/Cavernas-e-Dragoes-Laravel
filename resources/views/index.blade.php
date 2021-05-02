@@ -26,11 +26,15 @@
     <tbody>
 
       @foreach($listaPersonagens as $personagem)
-
+      @php
+	    $classe=$personagem->find($personagem->id)->relClasses;
+      
+      @endphp
+      
       <tr>
         <th scope="row">{{$personagem->id}}</th>
         <td>{{$personagem->nome}}</td>
-        <td>{{$personagem->classe}}</td>
+        <td>{{$classe->nome}}</td>
         <td>
           <a href="{{url("personagens/$personagem->id")}}">
             <button class="btn btn-dark"> Visualizar </button>

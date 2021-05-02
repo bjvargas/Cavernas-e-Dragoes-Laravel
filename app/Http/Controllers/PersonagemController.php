@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 //use Illuminate\Http\Request; - POdecequeerro branch7
 use App\Models\User;
+use App\Models\Classes;
 use App\Models\Personagem;
 use App\Http\Controllers\Util;
 use App\Http\Requests\PersonagemRequest;
@@ -21,6 +22,7 @@ class PersonagemController extends Controller
     private $objUtil;
     private $objMagia;
     private $objListaMagias;
+    private $objClasse;
         
     public function __construct()
     {
@@ -29,8 +31,7 @@ class PersonagemController extends Controller
         $this->objUtil=new Util();
         $this->objMagia=new Magia();
         $this->objListaMagias=new listamagias();
-
-
+        $this->objClasse=new Classes();
     }
     
       /**
@@ -58,8 +59,9 @@ class PersonagemController extends Controller
      */
     public function create()
     {
+        $classes=$this->objClasse->all();
         $users=$this->objUser->all();
-        return view('create', compact('users'));
+        return view('create', compact('users','classes'));
     }
 
     /**
@@ -71,10 +73,12 @@ class PersonagemController extends Controller
     public function store(PersonagemRequest $request)
     {
         $usuario = auth()->user();
-
+        $classe =$this->objClasse->find($request->id_classe);
+        $dadoVida =$classe->dado_vida;
+        
         $cad=$this->objPersonagem->create([
             'nome'=>$request->nome,
-            'classe'=>$request->classe,
+            'id_classe'=>$request->id_classe,
             'raca'=>$request->raca,
             'forca'=>$request->forca,
             'destreza'=>$request->destreza,
@@ -83,7 +87,8 @@ class PersonagemController extends Controller
             'sabedoria'=>$request->sabedoria,
             'carisma'=>$request->carisma,
             'id_user'=>$usuario->id,
-            'vida'=>$this->objUtil->calculaHpInicial($request->classe, $this->objUtil->converteAtributo($request->constituicao))
+            'vida'=>$this->objUtil->calculaHpInicial($dadoVida, $this->objUtil->converteAtributo($request->constituicao))
+            
         ]);
         if($cad){
             return redirect('personagens');
@@ -144,9 +149,10 @@ class PersonagemController extends Controller
      */
     public function edit($id)
     {
+       $classes=$this->objClasse->all();
        $personagem=$this->objPersonagem->find($id);
        $users=$this->objUser->all();
-       return view('create',compact('personagem','users'));
+       return view('create',compact('personagem','users','classes'));
     }
 
     /**
@@ -159,10 +165,12 @@ class PersonagemController extends Controller
     public function update(PersonagemRequest $request, $id)
     {
         $usuario = auth()->user();
+        $classe =$this->objClasse->find($request->id_classe);
+        $dadoVida =$classe->dado_vida;
 
         $this->objPersonagem->where(['id'=>$id])->update([
             'nome'=>$request->nome,
-            'classe'=>$request->classe,
+            'id_classe'=>$request->id_classe,
             'raca'=>$request->raca,
             'forca'=>$request->forca,
             'destreza'=>$request->destreza,
@@ -171,7 +179,7 @@ class PersonagemController extends Controller
             'sabedoria'=>$request->sabedoria,
             'carisma'=>$request->carisma,
             'id_user'=>$usuario->id,
-            'vida'=>$this->objUtil->calculaHpInicial($request->classe, $this->objUtil->converteAtributo($request->constituicao))
+            'vida'=>$this->objUtil->calculaHpInicial($dadoVida, $this->objUtil->converteAtributo($request->constituicao))
         ]);
         return redirect('personagens');
     }

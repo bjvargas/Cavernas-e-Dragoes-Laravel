@@ -30,14 +30,28 @@
     @csrf
 
     <input class="form-control" type="text" name="nome" id="nome" placeholder="Nome do Personagem:" value="{{$personagem->nome ?? ''}}" required><br>
+
+    @if (isset($personagem))
     <div class="form-group">
-      <select class="form-control" name="classe" id="classe" required>
-      <option value="{{$personagem->classe ?? ''}}" >@if(isset($personagem)) {{$personagem->classe}} @else Selecione sua Classe @endif</option>
-        <option value="Guerreiro">Guerreiro</option>
-        <option value="Barbaro">Bárbaro</option>
-        <option value="Bardo">Bardo</option>
-        <option value="Feiticeiro">Feiticeiro</option>
+      <select class="form-control" name="id_classe" id="id_classe" required>
+      @foreach($classes as $classe)
+      <option value="{{$classe->id}}">{{$classe->nome}}</option>
+      @endforeach
+
+     </select>
+        @else
+      <div class="form-group">
+      <select class="form-control" name="id_classe" id="id_classe" required>
+      <option value="" > Selecione sua Classe </option>
+      @foreach($classes as $classe)
+      <option value="{{$classe->id}}">{{$classe->nome}}</option>
+      @endforeach
+           
       </select>
+      @endif
+
+   
+      
     </div><br>
     <div class="form-group">
       <select class="form-control" name="raca" id="raca" required>
