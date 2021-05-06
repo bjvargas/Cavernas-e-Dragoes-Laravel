@@ -16,7 +16,7 @@ class Listaequipamentos extends Migration
         Schema::create('listaEquipamentos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_personagem')->unsigned();
-            $table->foreign('id_personagem')->references('id')->on('personagem')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_personagem')->references('id')->on('personagens')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('id_equipamento')->unsigned();
             $table->foreign('id_equipamento')->references('id')->on('equipamentos');
             $table->integer('qtd');

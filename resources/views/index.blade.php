@@ -11,6 +11,13 @@
   </a>
 </div>
 
+<form action="{{ route('buscar') }}" method="POST">
+  @csrf
+  <input type="text" name="buscar" placeholder="Pesquisar">
+  <button type="submit" class="btn btn-primary"> Filtrar </button>
+
+</form>
+
 <div class="col-10 m-auto">
 
   @csrf
@@ -27,10 +34,8 @@
 
       @foreach($listaPersonagens as $personagem)
       @php
-	    $classe=$personagem->find($personagem->id)->relClasses;
-      
+      $classe=$personagem->find($personagem->id)->relClasses;
       @endphp
-      
       <tr>
         <th scope="row">{{$personagem->id}}</th>
         <td>{{$personagem->nome}}</td>
@@ -52,6 +57,10 @@
       @endforeach
     </tbody>
   </table>
-  {{$listaPersonagens->links()}}
+  @if (isset($filtros))
+  {!! $listaPersonagens->appends($filtros)->links() !!}
+  @else
+  {!! $listaPersonagens->links() !!}
+  @endif
 </div>
 @endsection

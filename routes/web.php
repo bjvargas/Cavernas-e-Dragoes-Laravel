@@ -95,3 +95,7 @@ Route::get('/sair', function () {
     Auth::logout();
     return redirect('/entrar');
 });
+
+//Busca
+Route::any('/buscar', [PersonagemController::class, 'buscar'])
+->name('buscar');
