@@ -97,5 +97,8 @@ Route::get('/sair', function () {
 });
 
 //Busca
-Route::any('/buscar', [PersonagemController::class, 'buscar'])
-->name('buscar');
+Route::any('/buscar/Personagens', [PersonagemController::class, 'buscar'])
+->name('buscarPersonagens');
+
+Route::any('/buscar/Equipamentos', [EquipamentosController::class, 'buscar'])
+->name('buscarEquipamentos');
