@@ -6,6 +6,7 @@ use App\Http\Requests\EquipamentoRequest;
 use Illuminate\Pagination\Paginator;
 use App\Models\Equipamentos;
 use App\Models\listaequipamentos;
+use Illuminate\Http\Request;
 
 
 Paginator::useBootstrap();
@@ -94,5 +95,31 @@ class EquipamentosController extends Controller
     {
         $del=$this->objListaEquipamentos->destroy($id);
         return($del) ? "SIM" : "NÂO";
+    }
+
+    public function buscar(Request $busca){
+
+        $filtros = $busca->except('_token');
+        $listaEquipamentos=$this->objEquipamento
+        ->paginate(10);
+
+        if ($busca->buscaE == 'buscaNome') {
+            $listaEquipamentos = Equipamentos::where('nome', 'LIKE', "%{$busca->buscar}%")
+        ->orderByRaw('id')
+        ->paginate(5);
+        }
+            else if ($busca->buscaE == 'buscaTipo') {
+                $listaEquipamentos = Equipamentos::where('tipo', 'LIKE', "%{$busca->buscar}%")
+            ->orderByRaw('id')
+            ->paginate(5);
+            }
+                else if ($busca->buscaE == 'buscaPreco') {
+                    $listaEquipamentos = Equipamentos::where('preco', 'LIKE', "%{$busca->buscar}%")
+                ->orderByRaw('id')
+                ->paginate(5);
+                }
+        //dd($busca);
+        return view('equipamentos.equipamentos', compact('listaEquipamentos', 'filtros'));
+
     }
 }

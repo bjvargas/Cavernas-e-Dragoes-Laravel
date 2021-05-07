@@ -11,7 +11,7 @@
   </a>
 </div>
 
-<form action="{{ route('buscar') }}" method="POST">
+<form action="{{ route('buscarPersonagens') }}" method="POST">
   @csrf
   <input type="text" name="buscar" placeholder="Pesquisar">
   <button type="submit" class="btn btn-primary"> Filtrar </button>
