@@ -8,21 +8,23 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-    display: flex;
+    /*display: flex;*/
 }
 
 .links {
-    margin-left: 170px;
     justify-content: center;
-    width: 80%;
-    height: 50px;
+    width: 100%;
+    height: 197px;
     position: fixed;
     display: flex;
+    background-image: url('/imagens/scrolltop.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
     min-width: 1000px;
 }
 
 .links label {
-    padding: 10px 0;
+    padding: 20px 0;
     flex-grow: 1;
     cursor: pointer;
     transition: all .4s;
@@ -41,56 +43,93 @@
 }
 
 #home {
-    background-image: url('/imagens/scrolltop.jpg');
+    background-image: url('/imagens/scrollmid.jpg');
     background-size: 100%;
+    margin-left: 0%;
     background-repeat: no-repeat;
-    min-width: 1600px;
+    min-height: 100vh;
+    min-width: 1000px;
+}
+
+.container {
+    height: 60vh;
+    width: 120vh;
+    position: relative;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+}
+
+.logo {
+    color: #fff;
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translate(-50%, -1%);
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
+.paragrafo {
+    color: rgb(41, 1, 1);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3.2vh;
+    color: rgb(41, 1, 1);
+    text-shadow: black 1px 1px;
+    position: absolute;
+    top: 90%;
+    left: 10%;
+    transform: translate(-5%, -90%);
+}
+
+.paragrafo p {
+    width: 100%;
+    height: auto;
 }
 
 #racas {
     background-image: url('/imagens/scrollmid.jpg');
     background-position-y: -100vh;
-    margin-left: 3%;
-    background-size: 97%;
-    background-repeat: no-repeat;
-    min-width: 1600px;
+    background-size: 100%;
+    margin-left: 0%;
+    background-repeat: repeat-y;
 }
 
 #classes {
     background-image: url('/imagens/scrollmid.jpg');
     background-position-y: -100vh;
-    margin-left: 3%;
-    background-size: 97%;
-    background-repeat: no-repeat;
-    min-width: 1600px;
+    background-size: 100%;
+    margin-left: 0%;
+    background-repeat: repeat-y;
 }
 
 #antecedentes {
     background-image: url('/imagens/scrollmid.jpg');
     background-position-y: -100vh;
-    margin-left: 3%;
-    background-size: 97%;
-    background-repeat: no-repeat;
-    min-width: 1600px;
+    background-size: 100%;
+    margin-left: 0%;
+    background-repeat: repeat-y;
 }
 
 #magias {
     background-image: url('/imagens/scrollmid.jpg');
     background-position-y: -100vh;
-    margin-left: 3%;
-    background-size: 97%;
-    background-repeat: no-repeat;
-    min-width: 1600px;
+    background-size: 100%;
+    margin-left: 0%;
+    background-repeat: repeat-y;
 }
 
 #equipamentos {
     background-image: url('/imagens/scrollbot.jpg');
-    background-position-y: -50vh;
+    background-position-y: -20vh;
     background-size: 100%;
     background-repeat: no-repeat;
-    margin-left: 3%;
-    background-size: 97%;
-    min-width: 1600px;
+    background-size: 100%;
+    margin-left: 0%;
 }
 
 .scroll {
@@ -122,16 +161,6 @@
 
 #rd_equipamentos:checked~.sections {
     margin-top: -500vh;
-}
-
-#home p {
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    color: rgb(41, 1, 1);
-    text-shadow: black 1px 1px;
-    width: 1200px;
-    margin-top: 600px;
 }
 
 #racas p {
