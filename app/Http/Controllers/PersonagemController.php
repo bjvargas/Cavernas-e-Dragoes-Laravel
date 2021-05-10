@@ -42,7 +42,7 @@ class PersonagemController extends Controller
         $listaPersonagens= Personagem::where('id_user', '=', $usuario->id)
         ->orderByRaw('id')
         ->paginate(5);
-        return view('index', compact('listaPersonagens', 'usuario'));
+        return view('listagemPersonagens', compact('listaPersonagens', 'usuario'));
     }
 
     public function create()

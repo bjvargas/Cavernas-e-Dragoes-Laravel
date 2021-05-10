@@ -1,66 +1,57 @@
-@extends('templates.template')
+<!DOCTYPE html>
 
-@section('cabecalho')
-<h1 class="text-center">{{$usuario->name}}</h1>
-@endsection
-@section('conteudo')
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Bem vindo aventureiro!</title>
+        <link rel="stylesheet" type="text/css" href="{{ url('/css/index.css') }}" />
+    </head>
 
-<div class="text-center mt-3 mb-4">
-  <a href="{{url("personagens/create")}}">
-    <button class="btn btn-success"> Cadastrar </button>
-  </a>
-</div>
+    <body>
+       <nav class="links">
+           <label for="rd_home"><img src="/imagens/home.png"></label>
+           <label for="rd_racas"><img src="/imagens/racas.png"></label>
+           <label for="rd_classes"><img src="/imagens/classes.png"></label>
+           <label for="rd_antecedentes"><img src="/imagens/antecedentes.png"></label>
+           <label for="rd_magias"><img src="/imagens/magias.png"></label>
+           <label for="rd_equipamentos"><img src="/imagens/equipamentos.png"></label> 
+           <label for="rd_login"><img src="/imagens/login.png"></label>          
+       </nav>
 
-<form action="{{ route('buscarPersonagens') }}" method="POST">
-  @csrf
-  <input type="text" name="buscar" placeholder="Pesquisar">
-  <button type="submit" class="btn btn-primary"> Filtrar </button>
+       <div class="scroll"> 
+           <input type="radio" name="grupo" id="rd_home" checked="true">
+           <input type="radio" name="grupo" id="rd_racas">
+           <input type="radio" name="grupo" id="rd_classes">
+           <input type="radio" name="grupo" id="rd_antecedentes">
+           <input type="radio" name="grupo" id="rd_magias">
+           <input type="radio" name="grupo" id="rd_equipamentos">
+           <input type="radio" name="grupo" id="rd_login">
+        
+           <section class="sections">
 
-</form>
+                <section class="bloco" id="home">
+                    <p>
+                    Precisando de um lugar para criar e armazenar seus personagens em D&D 5e?
+                    Crie seus personagens consultando informações como raças, classes, magias, talentos e antecedentes.
+                    Poderá evoluir, adicionar equipamentos, magias e muito mais.
+                    Seja muito bem vindo aventureiro!
+                    </p>
+                </section>
+                <section class="bloco" id="racas">
+                    <p>
+                    Aqui informações sobre raças. djsnifdnidfnf
+                    jdnijnsoijcnoijncoisjnoidjnosijnfoisjnocijnsoi
+                    ocnisjnocijdnoijsndcojndocidjsnoicjdn
+                    kjsndckjnskjcn sjdcn skjcn sdjcnosijcni
+                    </p>
+                </section>
+                <section class="bloco" id="classes"></section>
+                <section class="bloco" id="antecedentes"></section>
+                <section class="bloco" id="magias"></section>
+                <section class="bloco" id="equipamentos"></section>
+                <section class="bloco" id="login"></section>
 
-<div class="col-10 m-auto">
-
-  @csrf
-  <table class="table text-center">
-    <thead class="table-dark">
-      <tr>
-        <th scope="col">Id Personagem</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Classe</th>
-        <th scope="col">Opções</th>
-      </tr>
-    </thead>
-    <tbody>
-
-      @foreach($listaPersonagens as $personagem)
-      @php
-      $classe=$personagem->find($personagem->id)->relClasses;
-      @endphp
-      <tr>
-        <th scope="row">{{$personagem->id}}</th>
-        <td>{{$personagem->nome}}</td>
-        <td>{{$classe->nome}}</td>
-        <td>
-          <a href="{{url("personagens/$personagem->id")}}">
-            <button class="btn btn-dark"> Visualizar </button>
-          </a>
-
-          <a href="{{url("personagens/$personagem->id/edit")}}">
-            <button class="btn btn-primary"> Editar </button>
-          </a>
-
-          <a href="{{url("personagens/$personagem->id")}}" class="js-del">
-            <button class="btn btn-danger"> Deletar </button>
-          </a>
-        </td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
-  @if (isset($filtros))
-  {!! $listaPersonagens->appends($filtros)->links() !!}
-  @else
-  {!! $listaPersonagens->links() !!}
-  @endif
-</div>
-@endsection
+           </section>
+       </div>
+    </body>
+</html>
