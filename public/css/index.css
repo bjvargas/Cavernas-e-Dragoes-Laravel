@@ -48,50 +48,48 @@
 }
 
 #racas {
-    background-image: url('/imagens/scroll2.jpg');
+    background-image: url('/imagens/scrollmid.jpg');
     background-position-y: -100vh;
-    background-size: 100%;
+    margin-left: 3%;
+    background-size: 97%;
     background-repeat: no-repeat;
     min-width: 1600px;
 }
 
 #classes {
-    background-image: url('/imagens/scroll2.jpg');
+    background-image: url('/imagens/scrollmid.jpg');
     background-position-y: -100vh;
-    background-size: 100%;
+    margin-left: 3%;
+    background-size: 97%;
     background-repeat: no-repeat;
     min-width: 1600px;
 }
 
 #antecedentes {
-    background-image: url('/imagens/scroll2.jpg');
+    background-image: url('/imagens/scrollmid.jpg');
     background-position-y: -100vh;
-    background-size: 100%;
+    margin-left: 3%;
+    background-size: 97%;
     background-repeat: no-repeat;
     min-width: 1600px;
 }
 
 #magias {
-    background-image: url('/imagens/scroll2.jpg');
+    background-image: url('/imagens/scrollmid.jpg');
     background-position-y: -100vh;
-    background-size: 100%;
+    margin-left: 3%;
+    background-size: 97%;
     background-repeat: no-repeat;
     min-width: 1600px;
 }
 
 #equipamentos {
-    background-image: url('/imagens/scroll2.jpg');
-    background-position-y: -100vh;
+    background-image: url('/imagens/scrollbot.jpg');
+    background-position-y: -50vh;
     background-size: 100%;
     background-repeat: no-repeat;
-    min-width: 1600px;
-}
-
-#login {
-    background-image: url('/imagens/scroll2.jpg');
-    background-position-y: -200vh;
-    background-size: 100%;
-    background-repeat: no-repeat;
+    margin-left: 3%;
+    background-size: 97%;
     min-width: 1600px;
 }
 
@@ -123,7 +121,7 @@
 }
 
 #rd_equipamentos:checked~.sections {
-    margin-top: -550vh;
+    margin-top: -500vh;
 }
 
 #home p {
