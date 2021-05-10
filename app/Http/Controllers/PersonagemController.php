@@ -10,10 +10,11 @@ use App\Http\Requests\PersonagemRequest;
 use App\Models\Equipamentos;
 use App\Models\listamagias;
 use App\Models\Magia;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
-Paginator::useBootstrap();
+LengthAwarePaginator::useBootstrap();
 
 class PersonagemController extends Controller
 {
@@ -39,6 +40,7 @@ class PersonagemController extends Controller
     {
         $usuario = auth()->user();
         $listaPersonagens= Personagem::where('id_user', '=', $usuario->id)
+        ->orderByRaw('id')
         ->paginate(5);
         return view('listagemPersonagens', compact('listaPersonagens', 'usuario'));
     }
@@ -150,5 +152,30 @@ class PersonagemController extends Controller
     {
         $del=$this->objPersonagem->destroy($id);
         return($del) ? "SIM":"NAO";
+    }
+
+    public function buscar(Request $busca){
+
+        $filtros = $busca->except('_token');
+
+        $usuario = auth()->user();
+        $listaPersonagens = Personagem::where('nome', 'LIKE', "%{$busca->buscar}%")
+        ->where('id_user', '=', $usuario->id)
+        ->orderByRaw('id')
+        ->paginate(5);
+
+        return view('index', compact('listaPersonagens', 'usuario', 'filtros'));
+
+    }
+
+    public function ordenar(String $order){
+
+
+        $usuario = auth()->user();
+        $listaPersonagens= Personagem::where('id_user', '=', $usuario->id)
+        ->orderByRaw($order)
+        ->paginate(5);
+        return view('index', compact('listaPersonagens', 'usuario'));
+
     }
  }

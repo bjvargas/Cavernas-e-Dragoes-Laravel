@@ -13,6 +13,18 @@
 
 <div class="col-10 m-auto">
 
+<form action="{{ route('buscarEquipamentos') }}" method="POST">
+  @csrf
+    <div class="form-group">
+      <select class="form-control" name="buscaE" id="buscaE" required>
+       <option value="buscaNome" name='buscaNome'>Nome</option>
+        <option value="buscaTipo" name='buscaTipo'>tipo</option>
+        <option value="buscaPreco" name='buscaPreco'>Preço</option>
+      </select>
+  <input type="text" name="buscar" placeholder="Pesquisar">
+  <button type="submit" class="btn btn-primary"> Filtrar </button>
+
+</form>
   @csrf
   <table class="table text-center">
     <thead class="table-dark">
@@ -47,6 +59,10 @@
       @endforeach
     </tbody>
   </table>
-  {{$listaEquipamentos->links()}}
+  @if (isset($filtros))
+  {!! $listaEquipamentos->appends($filtros)->links() !!}
+  @else
+  {!! $listaEquipamentos->links() !!}
+  @endif
 </div>
 @endsection

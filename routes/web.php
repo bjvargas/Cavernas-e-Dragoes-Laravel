@@ -101,5 +101,9 @@ Route::get('/sair', function () {
     return redirect('/entrar');
 });
 
-Route::get('/doctor', [App\Http\Controllers\EntrarController::class, 'laranja'])
-->name('doctor');
+//Busca
+Route::any('/buscar/Personagens', [PersonagemController::class, 'buscar'])
+->name('buscarPersonagens');
+
+Route::any('/buscar/Equipamentos', [EquipamentosController::class, 'buscar'])
+->name('buscarEquipamentos');
