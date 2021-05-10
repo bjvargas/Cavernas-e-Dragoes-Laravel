@@ -40,7 +40,7 @@ class PersonagemController extends Controller
         $usuario = auth()->user();
         $listaPersonagens= Personagem::where('id_user', '=', $usuario->id)
         ->paginate(5);
-        return view('index', compact('listaPersonagens', 'usuario'));
+        return view('listagemPersonagens', compact('listaPersonagens', 'usuario'));
     }
 
     public function create()

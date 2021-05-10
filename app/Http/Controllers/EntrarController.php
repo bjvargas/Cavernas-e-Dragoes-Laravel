@@ -15,10 +15,22 @@ class EntrarController extends Controller
         $this->objPersonagemController = new PersonagemController();
     }
 
+    public function indexInicial()
+    {
+
+        return view('index');
+    }
+
     public function index()
     {
 
-        return view('entrar.index');
+        return view('entrar.login');
+    }
+
+    public function laranja()
+    {
+
+        return view('entrar.teste');
     }
 
     public function entrar(Request $request)

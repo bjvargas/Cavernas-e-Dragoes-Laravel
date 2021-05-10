@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EntrarController;
 use App\Http\Controllers\ListaMagiasController;
 use App\Http\Controllers\ListaEquipamentosController;
 use App\Http\Controllers\MagiasController;
@@ -12,6 +13,10 @@ use App\Http\Controllers\ListaEquipamentosTipoConsumivelController;
 use App\Http\Controllers\ListaEquipamentosTipoDefesaController;
 use App\Http\Controllers\ListaEquipamentosTipoOutroController;
 use Illuminate\Support\Facades\Auth;
+
+//Pagina Inicial
+Route::get('/index', [EntrarController::class, 'indexInicial'])
+->name('indexInicial');
 
 //Personagem
 Route::resource('/personagens', PersonagemController::class)
@@ -95,3 +100,6 @@ Route::get('/sair', function () {
     Auth::logout();
     return redirect('/entrar');
 });
+
+Route::get('/doctor', [App\Http\Controllers\EntrarController::class, 'laranja'])
+->name('doctor');

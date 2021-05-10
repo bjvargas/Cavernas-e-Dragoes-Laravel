@@ -1,90 +1,146 @@
-/* Made with love by Mutiullah Samim*/
-
-@import url('https://fonts.googleapis.com/css?family=Numans');
-html,
-body {
-    background-image: url('/imagens/backgroundlogin.jpg');
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-position: center;
-    background-color: rgb(0, 0, 4);
-    height: 100%;
-    font-family: 'Numans', sans-serif;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.container {
-    height: 100%;
-    align-content: center;
-}
-
-.card {
-    height: 370px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: -500px;
-    width: 400px;
-    background-color: rgba(0, 0, 0, 0.5) !important;
-}
-
-.social_icon span {
-    font-size: 60px;
-    margin-left: 10px;
-    color: rgb(221, 195, 85);
-}
-
-.social_icon span:hover {
-    color: white;
-    cursor: pointer;
-}
-
-.card-header h3 {
-    color: white;
-}
-
-.social_icon {
-    position: absolute;
-    right: 20px;
-    top: -45px;
-}
-
-.input-group-prepend span {
-    width: 50px;
-    background-color: rgb(221, 195, 85);
-    color: black;
-    border: 0 !important;
-}
-
-input:focus {
-    outline: 0 0 0 0 !important;
-    box-shadow: 0 0 0 0 !important;
-}
-
-.remember {
-    color: white;
-}
-
-.remember input {
-    width: 20px;
-    height: 20px;
-    margin-left: 15px;
-    margin-right: 5px;
-}
-
-.login_btn {
-    color: black;
-    background-color: rgb(221, 195, 85);
-    width: 100px;
-}
-
-.login_btn:hover {
-    color: black;
-    background-color: white;
+.bloco {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .links {
-    color: white;
+    margin-left: 170px;
+    justify-content: center;
+    width: 80%;
+    height: 50px;
+    position: fixed;
+    display: flex;
+    min-width: 1000px;
 }
 
-.links a {
-    margin-left: 4px;
+.links label {
+    padding: 10px 0;
+    flex-grow: 1;
+    cursor: pointer;
+    transition: all .4s;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    color: #fff;
+}
+
+.links label:hover {
+    background-color: rgba(80, 70, 41, 0.767);
+}
+
+.scroll input {
+    display: none;
+}
+
+#home {
+    background-image: url('/imagens/scrolltop.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-width: 1600px;
+}
+
+#racas {
+    background-image: url('/imagens/scroll2.jpg');
+    background-position-y: -100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-width: 1600px;
+}
+
+#classes {
+    background-image: url('/imagens/scroll2.jpg');
+    background-position-y: -100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-width: 1600px;
+}
+
+#antecedentes {
+    background-image: url('/imagens/scroll2.jpg');
+    background-position-y: -100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-width: 1600px;
+}
+
+#magias {
+    background-image: url('/imagens/scroll2.jpg');
+    background-position-y: -100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-width: 1600px;
+}
+
+#equipamentos {
+    background-image: url('/imagens/scroll2.jpg');
+    background-position-y: -100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-width: 1600px;
+}
+
+#login {
+    background-image: url('/imagens/scroll2.jpg');
+    background-position-y: -200vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-width: 1600px;
+}
+
+.scroll {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sections {
+    transition: all .4s;
+}
+
+#rd_racas:checked~.sections {
+    margin-top: -100vh;
+}
+
+#rd_classes:checked~.sections {
+    margin-top: -200vh;
+}
+
+#rd_antecedentes:checked~.sections {
+    margin-top: -300vh;
+}
+
+#rd_magias:checked~.sections {
+    margin-top: -400vh;
+}
+
+#rd_equipamentos:checked~.sections {
+    margin-top: -550vh;
+}
+
+#home p {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: rgb(41, 1, 1);
+    text-shadow: black 1px 1px;
+    width: 1200px;
+    margin-top: 600px;
+}
+
+#racas p {
+    text-align: center;
+    color: rgb(41, 1, 1);
+    text-shadow: black 1px 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    width: 800px;
 }
