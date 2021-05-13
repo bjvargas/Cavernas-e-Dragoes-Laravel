@@ -39,6 +39,7 @@
       @endforeach
 
      </select>
+     </div>
         @else
       <div class="form-group">
       <select class="form-control" name="id_classe" id="id_classe" required>
@@ -48,20 +49,31 @@
       @endforeach
            
       </select>
+      </div>
+      @endif
+      @if (isset($personagem))
+      <div class="form-group">
+      <select class="form-control" name="id_raca" id="id_raca" required>
+      @foreach($racas as $raca)
+      <option value="{{$raca->id}}">{{$raca->nome}}</option>
+      @endforeach
+
+     </select>
+      </div>
+        @else
+      <div class="form-group">
+      <select class="form-control" name="id_raca" id="id_raca" required>
+      <option value="" > Selecione sua Raça </option>
+      @foreach($racas as $raca)
+      <option value="{{$raca->id}}">{{$raca->nome}}</option>
+      @endforeach
+
+      </select>
+      </div>
       @endif
 
-   
       
-    </div><br>
-    <div class="form-group">
-      <select class="form-control" name="raca" id="raca" required>
-      <option value="{{$personagem->raca ?? ''}}" >@if(isset($personagem)) {{$personagem->raca}} @else Selecione sua Raça @endif</option>
-        <option value="Humano">Humano</option>
-        <option value="Anão">Anão</option>
-        <option value="Elfo">Elfo</option>
-      </select>
-    </div>
-    Força: <input class="form-control" type="number" value="{{$personagem->forca ?? 8 }}" name="forca" id="forca" required>
+       Força: <input class="form-control" type="number" value="{{$personagem->forca ?? 8 }}" name="forca" id="forca" required>
     Destreza: <input class="form-control" type="number" value="{{$personagem->destreza ?? 8 }}" name="destreza" id="destreza" required>
     Constituição: <input class="form-control" type="number" value="{{$personagem->constituicao ?? 8 }}" name="constituicao" id="constituicao" required>
     Inteligência: <input class="form-control" type="number" value="{{$personagem->inteligencia ?? 8 }}" name="inteligencia" id="inteligencia" required>

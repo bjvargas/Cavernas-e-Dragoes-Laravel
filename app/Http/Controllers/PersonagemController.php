@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Classes;
+use App\Models\Raca;
 use App\Models\Personagem;
 use App\Http\Controllers\Util;
 use App\Http\Requests\PersonagemRequest;
@@ -23,6 +24,7 @@ class PersonagemController extends Controller
     private $objMagia;
     private $objListaMagias;
     private $objClasse;
+    private $objRaça;
         
     public function __construct()
     {
@@ -31,6 +33,7 @@ class PersonagemController extends Controller
         $this->objUtil=new Util();
         $this->objMagia=new Magia();
         $this->objListaMagias=new listamagias();
+        $this->objRaça=new Raca();
         $this->objClasse=new Classes();
         $this->objEquipamento = new Equipamentos();
     }
@@ -45,21 +48,23 @@ class PersonagemController extends Controller
 
     public function create()
     {
+        $racas=$this->objRaça->all();
         $classes=$this->objClasse->all();
         $users=$this->objUser->all();
-        return view('create', compact('users','classes'));
+        return view('create', compact('users','classes','racas'));
     }
 
     public function store(PersonagemRequest $request)
     {
         $usuario = auth()->user();
         $classe =$this->objClasse->find($request->id_classe);
+        $racas =$this->objRaça->find($request->id_raca);
         $dadoVida =$classe->dado_vida;
         
         $cad=$this->objPersonagem->create([
             'nome'=>$request->nome,
             'id_classe'=>$request->id_classe,
-            'raca'=>$request->raca,
+            'id_raca'=>$request->id_raca,
             'forca'=>$request->forca,
             'destreza'=>$request->destreza,
             'constituicao'=>$request->constituicao,
@@ -118,22 +123,24 @@ class PersonagemController extends Controller
 
     public function edit($id)
     {
+       $racas=$this->objRaça->all();
        $classes=$this->objClasse->all();
        $personagem=$this->objPersonagem->find($id);
        $users=$this->objUser->all();
-       return view('create',compact('personagem','users','classes'));
+       return view('create',compact('personagem','users','classes','racas'));
     }
 
     public function update(PersonagemRequest $request, $id)
     {
         $usuario = auth()->user();
         $classe =$this->objClasse->find($request->id_classe);
+        $racas =$this->objRaça->find($request->id_raca);
         $dadoVida =$classe->dado_vida;
 
         $this->objPersonagem->where(['id'=>$id])->update([
             'nome'=>$request->nome,
             'id_classe'=>$request->id_classe,
-            'raca'=>$request->raca,
+            'id_raca'=>$request->id_raca,
             'forca'=>$request->forca,
             'destreza'=>$request->destreza,
             'constituicao'=>$request->constituicao,
