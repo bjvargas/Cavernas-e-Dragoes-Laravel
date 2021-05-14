@@ -3,9 +3,11 @@
 @section('cabecalho')
 		@php
 	    $classe=$personagem->find($personagem->id)->relClasses;
+		$raca=$personagem->find($personagem->id)->relRacas;
      	@endphp
+		
 <h1 class="text-center">{{$personagem->nome}}</h1>
-<h3 class="text-center">{{$personagem->raca}}</h3>
+<h3 class="text-center">{{$raca->nome}}</h3>
 <h3 class="text-center">{{$classe->nome}}</h3>
 <h3 class="text-center">HP: {{$personagem->vida}}</h3>
 @endsection
