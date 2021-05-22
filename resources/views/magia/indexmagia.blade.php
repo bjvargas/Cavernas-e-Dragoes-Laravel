@@ -51,7 +51,7 @@
     @endforeach
 </tbody>
 </table>
-
+{{$magia->links()}}
 </div>
 @endsection
 
