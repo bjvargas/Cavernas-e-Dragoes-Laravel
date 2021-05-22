@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MagiaRequest;
 use App\Models\listamagias;
 use App\Models\Magia;
+use Illuminate\Pagination\LengthAwarePaginator;
+
+LengthAwarePaginator::useBootstrap();
 
 class MagiasController extends Controller
 {
@@ -20,7 +23,7 @@ class MagiasController extends Controller
 
     public function index()
     {
-        $magia = $this->objMagia->all()->sortBy(['classe', 'level']);
+        $magia = $this->objMagia->paginate(5);
         return view('magia.indexmagia', compact('magia'));
     }
 
