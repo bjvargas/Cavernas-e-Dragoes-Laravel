@@ -13,15 +13,20 @@ class ListaEquipamentosTipoConsumivelController extends Controller
 
     private $objListaEquipamento;
     private $objPersonagem;
+    private $objUtil;
 
     public function __construct()
     {
+        $this->objUtil=new Util();
         $this->objListaEquipamento = new listaequipamentos();
         $this->objPersonagem = new Personagem();
     }
 
-    public function criarAdicionarRemover(ListaEquipamentoRequest $request)
+    public function criarAdicionar(ListaEquipamentoRequest $request)
     {
+        if($request->quantidade < 1){
+            return redirect()->back()->withErrors('Você deve informar no mínimo 1 item.');
+        }
         $equipamento = DB::table('listaequipamentos')
             ->select('listaequipamentos.*')
             ->where('listaequipamentos.id_equipamento', '=', $request->id_equipamento)
@@ -31,9 +36,7 @@ class ListaEquipamentosTipoConsumivelController extends Controller
             ->select('listaequipamentos.*')
             ->where('listaequipamentos.id_equipamento', '=', $request->id_equipamento)
             ->where('listaequipamentos.id_personagem', '=', $request->id_personagem)
-            ->get();
-
-        
+            ->get();        
 
         if ($equipamento == 0) {
             $cad = $this->store($request);
@@ -42,10 +45,28 @@ class ListaEquipamentosTipoConsumivelController extends Controller
             }
         } else {
             $equip = $equipamentos[0];
-            $this->update($request, $equip->id, $equip->quantidade);
+            $this->objUtil->atualizarQuantidade($request, $equip->id, $equip->quantidade, 1);
 
             return redirect(url("exibirListaEquipamentosTipoConsumivel/$equip->id_personagem"));
         }
+    }
+
+    public function remover(ListaEquipamentoRequest $request)
+    {
+        $equipamentos = DB::table('listaequipamentos')
+            ->select('listaequipamentos.*')
+            ->where('listaequipamentos.id_equipamento', '=', $request->id_equipamento)
+            ->where('listaequipamentos.id_personagem', '=', $request->id_personagem)
+            ->get();
+      
+            $equip = $equipamentos[0];
+            if($equip->quantidade < $request->quantidade){
+                return redirect()->back()->withErrors('Quantidade informada maior do que você possui. Caso queira remover o item do inventário, clique em Deletar Equipamento');
+            }
+            $this->objUtil->atualizarQuantidade($request, $equip->id, $equip->quantidade, 2);
+
+            return redirect(url("exibirListaEquipamentosTipoConsumivel/$equip->id_personagem"));
+        
     }
 
     public function store(ListaEquipamentoRequest $request)
@@ -58,17 +79,7 @@ class ListaEquipamentosTipoConsumivelController extends Controller
         if ($cad) {
             return $cad;
         }
-    }
-
-    public function update(ListaEquipamentoRequest $request, $id, $quantidadeAtual)
-    {
-
-        $this->objListaEquipamento->where(['id' => $id])->update([
-            'id_personagem' => $request->id_personagem,
-            'id_equipamento' => $request->id_equipamento,
-            'quantidade' => ($quantidadeAtual + $request->quantidade)
-        ]);
-    }
+    }    
 
     public function exibirListaEquipamentosTipoConsumivel($id)
     {
