@@ -19,7 +19,7 @@ class Listaequipamentos extends Migration
             $table->foreign('id_personagem')->references('id')->on('personagens')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('id_equipamento')->unsigned();
             $table->foreign('id_equipamento')->references('id')->on('equipamentos');
-            $table->integer('qtd');
+            $table->integer('quantidade');
         });
     }
 

@@ -52,11 +52,16 @@ Route::get('/equipamentos', [EquipamentosController::class, 'index'])
 ->name('equipamentos')
 ->middleware('auth');
 
-Route::post('/listaequipamentos', [ListaEquipamentosController::class, 'store']);
-Route::post('/listaequipamentosAtaque', [ListaEquipamentosTipoAtaqueController::class, 'store']);
-Route::post('/listaequipamentosDefesa', [ListaEquipamentosTipoDefesaController::class, 'store']);
-Route::post('/listaequipamentosConsumivel', [ListaEquipamentosTipoConsumivelController::class, 'store']);
-Route::post('/listaequipamentosOutro', [ListaEquipamentosTipoOutroController::class, 'store']);
+Route::post('/listaequipamentos', [ListaEquipamentosController::class, 'store'])->middleware('auth');
+
+Route::post('/criarAdicionarA', [ListaEquipamentosTipoAtaqueController::class, 'criarAdicionar'])->middleware('auth');
+Route::post('/removerA', [ListaEquipamentosTipoAtaqueController::class, 'remover'])->middleware('auth');
+Route::post('/criarAdicionarD', [ListaEquipamentosTipoDefesaController::class, 'criarAdicionar'])->middleware('auth');
+Route::post('/removerD', [ListaEquipamentosTipoDefesaController::class, 'remover'])->middleware('auth');
+Route::post('/criarAdicionarC', [ListaEquipamentosTipoConsumivelController::class, 'criarAdicionar'])->middleware('auth');
+Route::post('/removerC', [ListaEquipamentosTipoConsumivelController::class, 'remover'])->middleware('auth');
+Route::post('/criarAdicionarO', [ListaEquipamentosTipoOutroController::class, 'criarAdicionar'])->middleware('auth');
+Route::post('/removerO', [ListaEquipamentosTipoOutroController::class, 'remover'])->middleware('auth');
 
 Route::get('/exibirListaEquipamentos/{id}', [ListaEquipamentosController::class, 'exibirListaEquipamentos'])
 ->name('exibirListaEquipamentos')
