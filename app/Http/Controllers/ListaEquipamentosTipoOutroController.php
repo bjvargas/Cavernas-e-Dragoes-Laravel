@@ -25,7 +25,8 @@ class ListaEquipamentosTipoOutroController extends Controller
     {      
         $cad=$this->objListaEquipamento->create([
             'id_personagem'=>$request->id_personagem,
-            'id_equipamento'=>$request->id_equipamento
+            'id_equipamento'=>$request->id_equipamento,
+            'quantidade'=>$request->quantidade
             ]);
         if($cad){
             return redirect(url("exibirListaEquipamentosTipoOutro/$cad->id_personagem"));

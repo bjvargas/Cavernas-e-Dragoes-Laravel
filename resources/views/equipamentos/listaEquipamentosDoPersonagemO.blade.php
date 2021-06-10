@@ -17,8 +17,11 @@
       @foreach($todosEquipamentosOutro as $equipO)
       <option value="{{$equipO->id}}">{{$equipO->nome}}</option>      
       @endforeach
-      <input type="hidden" name="id_personagem" id="id_personagem" value="{{$personagem->id}}" />
     </select><br>
+    <input type="hidden" name="id_personagem" id="id_personagem" value="{{$personagem->id}}" />
+    <Label>Informe a quantidade: </Label>
+      <input type="number" name="quantidade" id="quantidade" min="0" value="1" oninput="validity.valid||(value='');"/><br>
+
     <input type="submit" value="Adicionar" class="btn btn-primary">
   
   </div><br>

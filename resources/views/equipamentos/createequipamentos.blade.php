@@ -51,7 +51,6 @@
             <br>
     <input class="form-control" type="integer" name="peso" id="peso" placeholder="Peso: " value="{{$editequipamento->peso ?? ''}}" required><br>
     <input class="form-control" type="integer" name="dano" id="dano" placeholder="Dano: " value="{{$editequipamento->dano ?? ''}}" required><br>
-    <input class="form-control" type="integer" name="qtd" id="qtd" placeholder="Quantidade: " value="{{$editequipamento->qtd ?? ''}}" required><br>
     <input class="form-control" type="text" name="propriedade" id="propriedade" placeholder="Propriedades: " value="{{$editequipamento->propriedade ?? ''}}" required><br>
     <input class="form-control" type="text" name="descricao" id="descricao" placeholder="Descrição: " value="{{$editequipamento->descricao ?? ''}}" required><br>
     <input class="btn btn-primary" type="submit" value=@if (isset($editequipamento))Editar Equipamento @else Cadastrar Equipamento @endif>
