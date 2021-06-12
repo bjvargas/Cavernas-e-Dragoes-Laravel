@@ -1,143 +1,177 @@
-    * {
-        margin: 0;
-        padding: 0;
+@import url('https://fonts.googleapis.com/css?family=Numans');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-image: url('/imagens/fundoprincipal.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: rgb(0, 0, 2);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo {
+    flex: 1 0 auto;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 60vh;
+    position: relative;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+}
+
+.menu {
+    position: static;
+    font-family: 'Numans', sans-serif;
+    font-size: 15px;
+    list-style: none;
+    min-width: 900px;
+    display: flex;
+    height: 1rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.menu li {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.menu li a {
+    color: rgb(221, 200, 105);
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+.menu li a:hover {
+    background: rgb(121, 120, 60, 0.5);
+    color: #fff;
+    text-shadow: 0px 0px 5px rgb(235, 198, 79);
+    transition: .5s;
+}
+
+@keyframes fadeIn {
+    50% {
+        opacity: 1;
     }
-    
-    body {
-        background-image: url('/imagens/fundoprincipal.jpg');
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-color: rgb(0, 0, 2);
-        min-width: 900px;
-    }
-    
-    .bloco {
-        width: 100vw;
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .container {
-        height: 60vh;
-        width: 120vh;
-        position: relative;
-        top: 60%;
-        left: 50%;
-        transform: translate(-50%, -60%);
-    }
-    
-    .menu {
-        position: fixed;
-        font-family: 'Numans', sans-serif;
-        font-size: 15px;
-        list-style: none;
-        float: left;
-        min-width: 900px;
-        display: flex;
-    }
-    
-    .menu li {
-        position: relative;
-        float: left;
-    }
-    
-    .menu li a {
-        color: rgb(221, 200, 105);
-        text-decoration: none;
-        padding: 15px 80px;
-        display: block;
-        margin-top: 5px;
-        margin-left: 5px;
-    }
-    
-    .menu li a:hover {
-        background: rgb(121, 120, 60, 0.5);
-        color: #fff;
-        text-shadow: 0px 0px 5px rgb(235, 198, 79);
-        transition: .5s;
-    }
-    
-    @-webkit-keyframes fadeIn {
-        50% {
-            opacity: 1;
-        }
-    }
-    
-    @keyframes fadeIn {
-        50% {
-            opacity: 1;
-        }
-    }
-    
-    .fadeIn {
-        /*-webkit-animation: fadeIn 4s linear forwards;
-        animation: fadeIn 4s linear forwards;
-        opacity: 0;*/
-        position: absolute;
-        text-align: center;
-        height: 50vh;
-        width: 50vh;
-        /*top: 100%;
-        left: 49%;
-        transform: translate(-49%, -100%);*/
-        clear: left;
-        animation-delay: 1s;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -1%);
-    }
-    
-    .fadeIn p {
-        font-family: 'numans', sans-serif;
-        font-size: 20px;
-        color: rgb(247, 238, 238);
-        text-shadow: 0px 0px 10px rgb(7, 7, 7);
-        margin-top: 10px;
-        margin-left: 10px;
-    }
-    
-    .fadeIn img {
-        width: 100%;
-        height: auto;
-    }
-    
-    .fadeIn2 {
-        -webkit-animation: fadeIn 4s linear forwards;
-        animation: fadeIn 4s linear forwards;
-        position: absolute;
-        text-align: center;
-        height: 50vh;
-        width: 50vh;
-        top: 100%;
-        left: 49%;
-        transform: translate(-49%, -100%);
-        clear: left;
+}
+
+@keyframes fadeIn2 {
+    0% {
         opacity: 0;
-        animation-delay: 4s;
     }
-    
-    .fadeIn2 p {
-        font-family: 'numans', sans-serif;
-        font-size: 20px;
-        color: rgb(247, 238, 238);
-        text-shadow: 0px 0px 10px rgb(7, 7, 7);
-        margin-top: 10px;
-        margin-left: 10px;
+    100% {
+        opacity: 1;
     }
-    
-    footer {
-        height: 60px;
-        width: 1360px;
-        bottom: 0;
-        position: absolute;
-        background-color: rgb(0, 0, 2, 0.5);
-    }
-    
-    footer p {
-        font-family: 'Numans', sans-serif;
-        font-size: 13px;
-        color: antiquewhite;
-        text-align: center;
-        margin-top: 15px;
-    }
+}
+
+.fadeIn1 {
+    -webkit-animation: fadeIn 5s linear forwards;
+    animation: fadeIn 5s linear forwards;
+    position: absolute;
+    text-align: center;
+    width: 50vh;
+    top: 50%;
+    left: 49%;
+    transform: translate(-49%, -50%);
+    clear: left;
+    opacity: 0;
+    animation-delay: 2s;
+}
+
+.fadeIn1 p {
+    font-family: 'numans', sans-serif;
+    font-size: 20px;
+    color: rgb(247, 238, 238);
+    text-shadow: 0px 0px 10px rgb(7, 7, 7);
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.fadeIn2 {
+    -webkit-animation: fadeIn 13s linear forwards;
+    animation: fadeIn 13s linear forwards;
+    position: absolute;
+    text-align: center;
+    width: 50vh;
+    top: 50%;
+    left: 49%;
+    transform: translate(-49%, -50%);
+    clear: left;
+    opacity: 0;
+    animation-delay: 7s;
+}
+
+.fadeIn2 p {
+    font-family: 'numans', sans-serif;
+    font-size: 20px;
+    color: rgb(247, 238, 238);
+    text-shadow: 0px 0px 10px rgb(7, 7, 7);
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.fadeIn3 {
+    -webkit-animation: fadeIn 8s linear forwards;
+    animation: fadeIn 8s linear forwards;
+    position: absolute;
+    text-align: center;
+    width: 50vh;
+    top: 50%;
+    left: 49%;
+    transform: translate(-49%, -50%);
+    clear: left;
+    opacity: 0;
+    animation-delay: 22s;
+}
+
+.fadeIn3 p {
+    font-family: 'numans', sans-serif;
+    font-size: 20px;
+    color: rgb(247, 238, 238);
+    text-shadow: 0px 0px 10px rgb(7, 7, 7);
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.fadeIn4 {
+    animation: fadeIn2 3s linear;
+    position: absolute;
+    width: 50vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    clear: left;
+    opacity: 0;
+    animation-delay: 30s;
+    animation-fill-mode: forwards;
+}
+
+.fadeIn4 img {
+    width: 100%;
+    height: auto;
+    opacity: 0.8;
+}
