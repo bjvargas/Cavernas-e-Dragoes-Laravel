@@ -36,11 +36,14 @@ class Util extends Controller
         $calculo = 0;
         if($operacao == 1){
             $calculo = ($quantidadeAtual + $request->quantidade);
+            if($calculo > 9999){
+                return redirect()->back()->withErrors('Limite máximo: 9999');
+            }
         } else if ($operacao == 2) {
             $calculo = ($quantidadeAtual - $request->quantidade);
             if($calculo == 0){
                 return redirect()->back()->withErrors('Você deve possuir no mínimo 1 item.');
-            }
+            }           
         }
 
         $this->objListaEquipamento->where(['id' => $id])->update([
