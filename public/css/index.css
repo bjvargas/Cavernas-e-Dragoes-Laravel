@@ -9,28 +9,31 @@ body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    background-image: url('/imagens/fundoprincipal.jpg');
-    background-size: 100%;
-    background-repeat: no-repeat;
+    min-width: 900px;
     background-color: rgb(0, 0, 2);
 }
 
+
+}
 body {
     display: flex;
     flex-direction: column;
 }
-
 .conteudo {
     flex: 1 0 auto;
     height: 100vh;
+    width: 98.8vw;
     justify-content: center;
     align-items: center;
     margin-top: auto;
     margin-left: auto;
     margin-bottom: auto;
     margin-right: auto;
+    background-image: url('/imagens/fundoprincipal.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: rgb(0, 0, 2);
 }
-
 .container {
     height: 60vh;
     position: relative;
@@ -38,7 +41,6 @@ body {
     left: 50%;
     transform: translate(-50%, -60%);
 }
-
 .menu {
     position: static;
     font-family: 'Numans', sans-serif;
@@ -50,7 +52,6 @@ body {
     align-items: center;
     justify-items: center;
 }
-
 .menu li {
     position: relative;
     float: left;
@@ -60,7 +61,6 @@ body {
     justify-items: center;
     text-align: center;
 }
-
 .menu li a {
     color: rgb(221, 200, 105);
     text-decoration: none;
@@ -69,43 +69,39 @@ body {
     height: 100%;
     padding: 1rem;
 }
-
 .menu li a:hover {
     background: rgb(121, 120, 60, 0.5);
     color: #fff;
     text-shadow: 0px 0px 5px rgb(235, 198, 79);
     transition: .5s;
 }
-
 @keyframes fadeIn {
     50% {
         opacity: 1;
     }
 }
-
 @keyframes fadeIn2 {
     0% {
         opacity: 0;
     }
+    
     100% {
         opacity: 1;
     }
 }
-
 .fadeIn1 {
     -webkit-animation: fadeIn 5s linear forwards;
     animation: fadeIn 5s linear forwards;
     position: absolute;
     text-align: center;
-    width: 50vh;
-    top: 50%;
-    left: 49%;
-    transform: translate(-49%, -50%);
+    width: 40vh;
+    top: 40%;
+    left: 48%;
+    transform: translate(-48%, -40%);
     clear: left;
     opacity: 0;
     animation-delay: 2s;
 }
-
 .fadeIn1 p {
     font-family: 'numans', sans-serif;
     font-size: 20px;
@@ -114,21 +110,19 @@ body {
     margin-top: 10px;
     margin-left: 10px;
 }
-
 .fadeIn2 {
     -webkit-animation: fadeIn 13s linear forwards;
     animation: fadeIn 13s linear forwards;
     position: absolute;
     text-align: center;
-    width: 50vh;
-    top: 50%;
-    left: 49%;
-    transform: translate(-49%, -50%);
+    width: 40vh;
+    top: 40%;
+    left: 48%;
+    transform: translate(-48%, -40%);
     clear: left;
     opacity: 0;
     animation-delay: 7s;
 }
-
 .fadeIn2 p {
     font-family: 'numans', sans-serif;
     font-size: 20px;
@@ -137,21 +131,19 @@ body {
     margin-top: 10px;
     margin-left: 10px;
 }
-
 .fadeIn3 {
-    -webkit-animation: fadeIn 8s linear forwards;
-    animation: fadeIn 8s linear forwards;
+    -webkit-animation: fadeIn 5s linear forwards;
+    animation: fadeIn 5s linear forwards;
     position: absolute;
     text-align: center;
-    width: 50vh;
-    top: 50%;
-    left: 49%;
-    transform: translate(-49%, -50%);
+    width: 40vh;
+    top: 40%;
+    left: 48%;
+    transform: translate(-48%, -40%);
     clear: left;
     opacity: 0;
-    animation-delay: 22s;
+    animation-delay: 20s;
 }
-
 .fadeIn3 p {
     font-family: 'numans', sans-serif;
     font-size: 20px;
@@ -160,22 +152,20 @@ body {
     margin-top: 10px;
     margin-left: 10px;
 }
-
 .fadeIn4 {
     animation: fadeIn2 3s linear;
     position: absolute;
     width: 50vh;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 51%;
+    left: 54%;
+    transform: translate(-54%, -51%);
     clear: left;
     opacity: 0;
-    animation-delay: 30s;
+    animation-delay: 25s;
     animation-fill-mode: forwards;
 }
-
 .fadeIn4 img {
-    width: 100%;
+    width: 80%;
     height: auto;
     opacity: 0.8;
 }
