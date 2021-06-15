@@ -17,6 +17,15 @@ body {
     flex-direction: column;
 }
 
+p {
+    font-family: 'numans', sans-serif;
+    font-size: 1.2em;
+    color: rgb(247, 238, 238);
+    text-shadow: 0px 0px 10px rgb(7, 7, 7);
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
 .conteudo {
     flex: 1 0 auto;
     height: 100vh;
@@ -107,15 +116,6 @@ body {
     animation-delay: 2s;
 }
 
-.fadeIn1 p {
-    font-family: 'numans', sans-serif;
-    font-size: 20px;
-    color: rgb(247, 238, 238);
-    text-shadow: 0px 0px 10px rgb(7, 7, 7);
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
 .fadeIn2 {
     -webkit-animation: fadeIn 13s linear forwards;
     animation: fadeIn 13s linear forwards;
@@ -126,15 +126,6 @@ body {
     animation-delay: 7s;
 }
 
-.fadeIn2 p {
-    font-family: 'numans', sans-serif;
-    font-size: 20px;
-    color: rgb(247, 238, 238);
-    text-shadow: 0px 0px 10px rgb(7, 7, 7);
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
 .fadeIn3 {
     -webkit-animation: fadeIn 5s linear forwards;
     animation: fadeIn 5s linear forwards;
@@ -143,15 +134,6 @@ body {
     clear: left;
     opacity: 0;
     animation-delay: 20s;
-}
-
-.fadeIn3 p {
-    font-family: 'numans', sans-serif;
-    font-size: 20px;
-    color: rgb(247, 238, 238);
-    text-shadow: 0px 0px 10px rgb(7, 7, 7);
-    margin-top: 10px;
-    margin-left: 10px;
 }
 
 .fadeIn4 {
