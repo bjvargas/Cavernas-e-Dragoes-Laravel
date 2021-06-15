@@ -21,7 +21,7 @@
       <li><a href="#">Antecedentes</a></li>
       <li><a href="#">Magias</a></li>
       <li><a href="#">Equipamentos</a></li>
-      <li><a href="#">Login</a></li>
+      <li><a href="entrar">Login</a></li>
 
     </ul>
 
