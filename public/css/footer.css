@@ -1,9 +1,9 @@
 .rodape {
     flex-shrink: 0;
-    background-color: black;
-    color: wheat;
+    background-color: rgb(0, 0, 5);
     padding: 30px;
     text-align: center;
+    justify-content: center;
 }
 
 .textos-footer {

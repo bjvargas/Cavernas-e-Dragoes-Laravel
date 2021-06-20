@@ -26,8 +26,8 @@
 
 </form>
   @csrf
-  <table class="table text-center">
-    <thead class="table-dark">
+  <table class="table table-hover">
+    <thead class="">
       <tr>
         <th scope="col">Id </th>
         <th scope="col">Nome</th>

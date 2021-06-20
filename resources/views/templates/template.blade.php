@@ -7,23 +7,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="favicon.ico" >
     <title>Cavernas e Dragões</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/index.css') }}" />
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 d-flex justify-content-between">
+<header class="cabecalho">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     @auth
-     <a class="navbar navbar-expand-lg" href="{{ route('personagens') }}">Personagens    </a>
-     <a class="navbar navbar-expand-lg" href="{{ route('magias') }}">Magias</a>
-     <a class="navbar navbar-expand-lg" href="{{ route('equipamentos') }}">Equipamentos</a>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ route('indexInicial') }}">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link active" href="{{ route('personagens') }}">Personagens<span class="visually-hidden">(current)</span></a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="{{ route('magias') }}">Magias</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('equipamentos') }}">Equipamentos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/sair">Sair</a></li>
+            @endauth
+                      
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-     
-     <a href="/sair" class="text-danger">Sair</a>
-     @endauth
-     @guest
-     <a>Realize o Login</a>
-     @endguest
-</nav>
+  </header>
+
     <div class="container">
         <div class="jumbotron">
             <h1>@yield('cabecalho')</h1>
