@@ -57,7 +57,7 @@
         <p>Precisando de um lugar para criar e armazenar seus personagens em D&D 5e?</p>
       </div>
 
-      <div class="fadeIn2">
+      <div id="correcao" class="fadeIn2">
         <p>Crie seus personagens consultando informações como raças, classes, magias, talentos e antecedentes.
           Poderá evoluir, adicionar equipamentos, magias e muito mais.</p>
       </div>
