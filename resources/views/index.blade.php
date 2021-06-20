@@ -63,8 +63,7 @@
       </div>
 
       <div class="fadeIn3">
-        <br>
-        <p>Seja muito bem vindo aventureiro!</p>
+          <p>Seja muito bem vindo aventureiro!</p>
       </div>
 
       <div class="fadeIn4">
