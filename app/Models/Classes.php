@@ -9,6 +9,7 @@ class Classes extends Model
 {
     protected $table='classes';
     protected $fillable=['nome', 'dado_vida', 'habilidade_primaria', 'proeficiencia_ressitencia'];
+    public $timestamps = false;
 
     use HasFactory;
 }

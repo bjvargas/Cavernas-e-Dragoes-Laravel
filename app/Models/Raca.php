@@ -9,5 +9,6 @@ class Raca extends Model
 {
     protected $table='racas';
     protected $fillable=['nome'];
+    public $timestamps = false;
     use HasFactory;
 }
