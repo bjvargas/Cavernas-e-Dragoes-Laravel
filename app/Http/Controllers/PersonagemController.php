@@ -22,13 +22,12 @@ class PersonagemController extends Controller
     private $objUser;
     private $objPersonagem;
     private $objUtil;
-    private $objMagia;
-    private $objListaMagias;
     private $objClasse;
     private $objRaça;
         
     public function __construct()
     {
+        $this->middleware('auth');
         $this->objUser=new User();
         $this->objPersonagem=new Personagem();
         $this->objUtil=new Util();
@@ -39,7 +38,7 @@ class PersonagemController extends Controller
         $this->objEquipamento = new Equipamentos();
     }
     
-    public function index()
+    public function listar()
     {
         $usuario = auth()->user();
         $listaPersonagens= Personagem::where('id_user', '=', $usuario->id)

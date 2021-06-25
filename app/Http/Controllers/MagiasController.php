@@ -16,12 +16,13 @@ class MagiasController extends Controller
 
     public function __construct()
     {
+        $this->middleware('auth');
         $this->objMagia = new Magia();
         $this->objListaMagia = new listamagias();
     }
 
 
-    public function index()
+    public function listar()
     {
         $magia = $this->objMagia->paginate(5);
         return view('magia.indexmagia', compact('magia'));
@@ -92,10 +93,5 @@ class MagiasController extends Controller
         $del = $this->objMagia->destroy($id);
         return ($del) ? "SIM" : "NAO";
     }
-
-    public function destroyMagiaPersonagem($id)
-    {
-        $del = $this->objListaMagia->destroy($id);
-        return ($del) ? "SIM" : "NAO";
-    }
+    
 }

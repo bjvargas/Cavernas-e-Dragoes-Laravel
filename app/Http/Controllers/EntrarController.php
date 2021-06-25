@@ -21,16 +21,10 @@ class EntrarController extends Controller
         return view('index');
     }
 
-    public function index()
+    public function logar()
     {
 
         return view('entrar.login');
-    }
-
-    public function laranja()
-    {
-
-        return view('entrar.teste');
     }
 
     public function entrar(Request $request)

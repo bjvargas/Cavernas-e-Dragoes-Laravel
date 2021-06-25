@@ -171,7 +171,7 @@
 	
 	
     </tbody>
-		<a href="{{url("exibirListaEquipamentosTipoAtaque/$personagem->id")}}"> <br>
+		<a href="{{ route('exibirListaEquipamentosPorTipo', ['id' => $personagem->id, 'tipo' => 'Ataque']) }}"> <br>
             <button class="btn btn-dark"> Ver e Add equips Atque </button> <br>
           </a>
   </table>
@@ -198,7 +198,7 @@
 	
 	
     </tbody>
-		<a href="{{url("exibirListaEquipamentosTipoDefesa/$personagem->id")}}"> <br>
+		<a href="{{ route('exibirListaEquipamentosPorTipo', ['id' => $personagem->id, 'tipo' => 'Defesa']) }}"> <br>
             <button class="btn btn-dark"> Ver e Add equips Def </button> <br>
           </a>
   </table>
@@ -225,7 +225,7 @@
 	
 	
     </tbody>
-		<a href="{{url("exibirListaEquipamentosTipoConsumivel/$personagem->id")}}"> <br>
+		<a href="{{ route('exibirListaEquipamentosPorTipo', ['id' => $personagem->id, 'tipo' => 'Consumivel']) }}"> <br>
             <button class="btn btn-dark"> Ver e Add equips Consumivel  </button> <br>
           </a>
   </table>
@@ -251,7 +251,7 @@
 	
 	
     </tbody>
-		<a href="{{url("exibirListaEquipamentosTipoOutro/$personagem->id")}}"> <br>
+		<a href="{{ route('exibirListaEquipamentosPorTipo', ['id' => $personagem->id, 'tipo' => 'Outro']) }}"> <br>
             <button class="btn btn-dark"> Ver e Add equips Outros  </button> <br>
           </a>
   </table>
