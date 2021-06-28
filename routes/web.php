@@ -22,6 +22,7 @@ Route::get('/home', [EntrarController::class, 'indexInicial']);
 
 
 //Login
+Auth::routes();
 Route::get('/entrar', [EntrarController::class, 'logar'])->name('login');
 Route::post('/entrar', [EntrarController::class, 'entrar']);
 
