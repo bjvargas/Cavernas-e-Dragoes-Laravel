@@ -27,6 +27,9 @@ class ListaEquipamentosTipoOutroController extends Controller
         if($request->quantidade < 1){
             return redirect()->back()->withErrors('Você deve informar no mínimo 1 item.');
         }
+        if($request->quantidade > 9999){
+            return redirect()->back()->withErrors('Limite máximo: 9999');
+        }
         $equipamento = DB::table('listaequipamentos')
             ->select('listaequipamentos.*')
             ->where('listaequipamentos.id_equipamento', '=', $request->id_equipamento)
