@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\EntrarController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ListaMagiasController;
 use App\Http\Controllers\ListaEquipamentosController;
 use App\Http\Controllers\MagiasController;
@@ -9,10 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PersonagemController;
 use App\Http\Controllers\EquipamentosController;
-use App\Http\Controllers\ListaEquipamentosTipoAtaqueController;
-use App\Http\Controllers\ListaEquipamentosTipoConsumivelController;
-use App\Http\Controllers\ListaEquipamentosTipoDefesaController;
-use App\Http\Controllers\ListaEquipamentosTipoOutroController;
+
 use Illuminate\Support\Facades\Auth;
 
 //Pagina Inicial
