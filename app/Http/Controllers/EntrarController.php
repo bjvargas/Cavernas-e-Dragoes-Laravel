@@ -17,8 +17,9 @@ class EntrarController extends Controller
 
     public function indexInicial()
     {
+        $usuario = auth()->user();
 
-        return view('index');
+        return view('index',  compact('usuario'));
     }
 
     public function index()

@@ -7,7 +7,7 @@
 <html>
 
 <head>
-	<title>Login Page</title>
+	<title>Faça seu login</title>
 	<!--Made with love by Mutiullah Samim -->
 
 	<!--Bootsrap 4 CDN-->

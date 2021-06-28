@@ -14,8 +14,8 @@
 <div class="col-10 m-auto">
 
   @csrf
-  <table class="table text-center">
-    <thead class="table-dark">
+  <table class="table table-hover">
+    <thead >
       <tr>
         <th scope="col">Id Personagem</th>
         <th scope="col">Nome</th>
