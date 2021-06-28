@@ -16,7 +16,6 @@ Route::get('/', [EntrarController::class, 'indexInicial']);
 Route::get('/index', [EntrarController::class, 'indexInicial']);
 Route::get('/home', [EntrarController::class, 'indexInicial']);
 
-
 //Login
 Auth::routes();
 Route::get('/entrar', [EntrarController::class, 'logar'])->name('login');
