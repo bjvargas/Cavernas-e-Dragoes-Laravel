@@ -12,7 +12,7 @@ use App\Http\Controllers\EquipamentosController;
 use Illuminate\Support\Facades\Auth;
 
 //Pagina Inicial
-Route::get('/', [EntrarController::class, 'indexInicial']);
+Route::get('/', [EntrarController::class, 'indexInicial'])->name("indexInicial");
 Route::get('/index', [EntrarController::class, 'indexInicial']);
 Route::get('/home', [EntrarController::class, 'indexInicial']);
 
