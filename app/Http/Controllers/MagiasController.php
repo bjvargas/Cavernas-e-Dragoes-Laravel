@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MagiaRequest;
-use App\Models\listamagias;
+use App\Models\ListaMagia;
 use App\Models\Magia;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -17,7 +17,7 @@ class MagiasController extends Controller
     public function __construct()
     {
         $this->objMagia = new Magia();
-        $this->objListaMagia = new listamagias();
+        $this->objListaMagia = new ListaMagia();
     }
 
 

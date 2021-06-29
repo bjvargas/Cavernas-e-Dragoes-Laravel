@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ListaMagiaRequest;
-use App\Models\listamagias;
+use App\Models\ListaMagia;
 use App\Models\Personagem;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +14,7 @@ class ListaMagiasController extends Controller
 
     public function __construct()
     {
-        $this->objListaMagia = new listamagias();
+        $this->objListaMagia = new ListaMagia();
         $this->objPersonagem=new Personagem();
 
     }
@@ -22,11 +22,11 @@ class ListaMagiasController extends Controller
     public function store(ListaMagiaRequest $request)
     {
         $cad = $this->objListaMagia->create([
-            'id_personagem' => $request->id_personagem,
-            'id_magia' => $request->id_magia
+            'personagem_id' => $request->personagem_id,
+            'magia_id' => $request->magia_id
         ]);
         if ($cad) {
-            return redirect(url("exibirListaMagias/$cad->id_personagem"));
+            return redirect(url("exibirListaMagias/$cad->personagem_id"));
         }
     }
 
@@ -34,17 +34,17 @@ class ListaMagiasController extends Controller
     {
 
         $magias = DB::table('magias')
-            ->join('listamagias', 'magias.id', '=', 'listamagias.id_magia')
-            ->select('magias.*', 'listamagias.id as id_cadastro')
-            ->where('listamagias.id_personagem', '=', $id)
+            ->join('lista_magias', 'magias.id', '=', 'lista_magias.magia_id')
+            ->select('magias.*', 'lista_magias.id as id_cadastro')
+            ->where('lista_magias.personagem_id', '=', $id)
             ->get();
 
         $todasMagias = DB::table('magias')
-            ->leftJoin('listamagias', 'magias.id', '=', 'listamagias.id_magia')
-            ->select('magias.*', 'listamagias.id_magia')
+            ->leftJoin('lista_magias', 'magias.id', '=', 'lista_magias.magia_id')
+            ->select('magias.*', 'lista_magias.magia_id')
             ->whereNotIn('magias.id', function ($q) use ($id) {
-                $q->select('id_magia')->from('listamagias')
-                    ->where('id_personagem', '=', $id);
+                $q->select('magia_id')->from('lista_magias')
+                    ->where('personagem_id', '=', $id);
             })->get();
 
         $personagem = $this->objPersonagem->find($id);

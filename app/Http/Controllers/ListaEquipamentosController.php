@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ListaEquipamentoRequest;
-use App\Models\Equipamentos;
-use App\Models\listaequipamentos;
+use App\Models\Equipamento;
+use App\Models\ListaEquipamento;
 use App\Models\Personagem;
 use Illuminate\Support\Facades\DB;
 
@@ -16,20 +16,20 @@ class ListaEquipamentosController extends Controller
 
     public function __construct()
     {
-        $this->objListaEquipamento = new listaequipamentos();
+        $this->objListaEquipamento = new ListaEquipamento();
         $this->objPersonagem=new Personagem();
-        $this->objEquipamento=new Equipamentos();
+        $this->objEquipamento=new Equipamento();
 
     }
 
     public function store(ListaEquipamentoRequest $request)
     {      
         $cad=$this->objListaEquipamento->create([
-            'id_personagem'=>$request->id_personagem,
-            'id_equipamento'=>$request->id_equipamento
+            'personagem_id'=>$request->personagem_id,
+            'equipamento_id'=>$request->equipamento_id
             ]);
         if($cad){
-            return redirect(url("exibirListaEquipamentos/$cad->id_personagem"));
+            return redirect(url("exibirListaEquipamentos/$cad->personagem_id"));
         }
     }
 
@@ -43,9 +43,9 @@ class ListaEquipamentosController extends Controller
     {
        
        $equipamentos = DB::table('equipamentos')
-       ->join('listaequipamentos', 'equipamentos.id', '=', 'listaequipamentos.id_equipamento')
-       ->select('equipamentos.*', 'listaequipamentos.id as id_cadastro')
-       ->where('listaequipamentos.id_personagem', '=', $id)
+       ->join('lista_equipamentos', 'equipamentos.id', '=', 'lista_equipamentos.equipamento_id')
+       ->select('equipamentos.*', 'lista_equipamentos.id as id_cadastro')
+       ->where('lista_equipamentos.personagem_id', '=', $id)
        ->get();
 
        $todosEquipamentosDefesa=  DB::table('equipamentos')

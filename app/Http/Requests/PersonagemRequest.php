@@ -25,8 +25,8 @@ class PersonagemRequest extends FormRequest
     {
         return [
            'nome'=>'required',
-           'id_raca'=>'required',
-           'id_classe'=>'required'
+           'raca_id'=>'required',
+           'classe_id'=>'required'
         ];
     }
 

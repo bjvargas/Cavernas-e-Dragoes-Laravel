@@ -24,14 +24,14 @@ class ListaMagiaRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_magia'=>'required'
+            'magia_id'=>'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'id_magia.required'=> 'Aventureriro, preencha o nome da magia',
+            'magia_id.required'=> 'Aventureriro, preencha o nome da magia',
         ];
     }
 }

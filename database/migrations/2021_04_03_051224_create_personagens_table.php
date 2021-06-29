@@ -14,14 +14,8 @@ class CreatePersonagensTable extends Migration
     public function up()
     {
         Schema::create('personagens', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_user')->unsigned();
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('id_classe')->unsigned();
-            $table->foreign('id_classe')->references('id')->on('classes')->onDelete('cascade')->onUpdate('cascade');
+            $table->id();
             $table->string('nome');
-            $table->integer('id_raca')->unsigned();
-            $table->foreign('id_raca')->references('id')->on('racas')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('forca');
             $table->integer('destreza');
             $table->integer('constituicao');
@@ -29,6 +23,11 @@ class CreatePersonagensTable extends Migration
             $table->integer('sabedoria');
             $table->integer('carisma');
             $table->integer('vida');
+
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('classe_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('raca_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

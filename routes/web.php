@@ -42,7 +42,7 @@ Route::get('/exibirListaMagias/{id}', [ListaMagiasController::class, 'exibirList
 ->name('exibirListaMagias')
 ->middleware('auth');
 
-Route::post('/listamagias', [ListaMagiasController::class, 'store']);
+Route::post('/lista_magias', [ListaMagiasController::class, 'store']);
 
 //Equipamento
 Route::resource('/equipamentos', EquipamentosController::class)
@@ -52,7 +52,7 @@ Route::get('/equipamentos', [EquipamentosController::class, 'index'])
 ->name('equipamentos')
 ->middleware('auth');
 
-Route::post('/listaequipamentos', [ListaEquipamentosController::class, 'store'])->middleware('auth');
+Route::post('/lista_equipamentos', [ListaEquipamentosController::class, 'store'])->middleware('auth');
 
 Route::post('/criarAdicionarA', [ListaEquipamentosTipoAtaqueController::class, 'criarAdicionar'])->middleware('auth');
 Route::post('/removerA', [ListaEquipamentosTipoAtaqueController::class, 'remover'])->middleware('auth');

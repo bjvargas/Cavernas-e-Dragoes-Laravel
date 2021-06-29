@@ -15,7 +15,7 @@ class Magia extends Model
 
    /* public function relPersonagens()
     {
-        return $this->hasMany('App\Models\Personagem','id','id_user');
+        return $this->hasMany('App\Models\Personagem','id','user_id');
     }
     */
     use HasFactory;

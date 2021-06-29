@@ -24,14 +24,14 @@ class ListaEquipamentoRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_equipamento'=>'required'
+            'equipamento_id'=>'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'id_equipamento.required'=> 'Aventureriro, preencha o nome do Equipamento',
+            'equipamento_id.required'=> 'Aventureriro, preencha o nome do Equipamento',
         ];
     }
 }

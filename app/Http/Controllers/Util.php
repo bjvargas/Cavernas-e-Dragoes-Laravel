@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ListaEquipamentoRequest;
-use App\Models\listaequipamentos;
+use App\Models\ListaEquipamento;
 
 class Util extends Controller
 {
@@ -13,7 +13,7 @@ class Util extends Controller
 
     public function __construct()
     {
-        $this->objListaEquipamento = new listaequipamentos();
+        $this->objListaEquipamento = new ListaEquipamento();
     }
 
     public function converteAtributo($valor)
@@ -44,8 +44,8 @@ class Util extends Controller
         }
 
         $this->objListaEquipamento->where(['id' => $id])->update([
-            'id_personagem' => $request->id_personagem,
-            'id_equipamento' => $request->id_equipamento,            
+            'personagem_id' => $request->personagem_id,
+            'equipamento_id' => $request->equipamento_id,            
             'quantidade' => $calculo            
         ]);
     }

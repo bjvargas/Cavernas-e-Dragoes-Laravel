@@ -12,12 +12,12 @@
   <form name="formListaEquipamento2" id="formListaEquipamento2" method="post" action="{{url("criarAdicionarC")}}">
     @csrf
     <Label>Equipamentos Consumiveis:</Label>
-    <select class="form-control" name="id_equipamento" id="id_equipamento" required>
+    <select class="form-control" name="equipamento_id" id="equipamento_id" required>
       @foreach($todosEquipamentosConsumivel as $equipC)
       <option value="{{$equipC->id}}">{{$equipC->nome}}</option>
       @endforeach
     </select><br>
-    <input type="hidden" name="id_personagem" id="id_personagem" value="{{$personagem->id}}" />
+    <input type="hidden" name="personagem_id" id="personagem_id" value="{{$personagem->id}}" />
     <Label>Informe a quantidade: </Label>
     <input type="number" style="width: 3em" name="quantidade" id="quantidade" min="0" value="1" oninput="validity.valid||(value='');" /><br>
     <input type="submit" value="Adicionar" class="btn btn-primary">
@@ -59,8 +59,8 @@
           </a>
           <form name="formListaEquipamentoRemov" id="formListaEquipamentoRemov" method="post" action="{{url("removerC")}}">
             @csrf
-            <input type="hidden" name="id_personagem" id="id_personagem" value="{{$personagem->id}}" />
-            <input type="hidden" name="id_equipamento" id="id_equipamento" value="{{$equipamento->id}}" />
+            <input type="hidden" name="personagem_id" id="personagem_id" value="{{$personagem->id}}" />
+            <input type="hidden" name="equipamento_id" id="equipamento_id" value="{{$equipamento->id}}" />
 
             <input style="width: 3em" type="number" name="quantidade" id="quantidade" min="0" value="0" oninput="validity.valid||(value='');" />
             <input type="submit" value="Remover quantidade" class="btn btn-primary">

@@ -33,7 +33,7 @@
 
     @if (isset($personagem))
     <div class="form-group">
-      <select class="form-control" name="id_classe" id="id_classe" required>
+      <select class="form-control" name="classe_id" id="classe_id" required>
       @foreach($classes as $classe)
       <option value="{{$classe->id}}">{{$classe->nome}}</option>
       @endforeach
@@ -42,7 +42,7 @@
      </div>
         @else
       <div class="form-group">
-      <select class="form-control" name="id_classe" id="id_classe" required>
+      <select class="form-control" name="classe_id" id="classe_id" required>
       <option value="" > Selecione sua Classe </option>
       @foreach($classes as $classe)
       <option value="{{$classe->id}}">{{$classe->nome}}</option>
@@ -53,7 +53,7 @@
       @endif
       @if (isset($personagem))
       <div class="form-group">
-      <select class="form-control" name="id_raca" id="id_raca" required>
+      <select class="form-control" name="raca_id" id="raca_id" required>
       @foreach($racas as $raca)
       <option value="{{$raca->id}}">{{$raca->nome}}</option>
       @endforeach
@@ -62,7 +62,7 @@
       </div>
         @else
       <div class="form-group">
-      <select class="form-control" name="id_raca" id="id_raca" required>
+      <select class="form-control" name="raca_id" id="raca_id" required>
       <option value="" > Selecione sua Raça </option>
       @foreach($racas as $raca)
       <option value="{{$raca->id}}">{{$raca->nome}}</option>

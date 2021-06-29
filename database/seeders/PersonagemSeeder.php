@@ -15,107 +15,107 @@ class PersonagemSeeder extends Seeder
      */
     public function run()
     {
-        Personagem::create(['nome'=>'Anaxibia', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Anaxibia', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);        
 
-        Personagem::create(['nome'=>'Bromios', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Bromios', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Cybele', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Cybele', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
         
-        Personagem::create(['nome'=>'Eidothea', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Eidothea', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Fawkes', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Fawkes', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Galateia', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Galateia', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Eustacia', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Eustacia', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Hopladamos', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Hopladamos', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Iphis', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Iphis', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Justitia', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Justitia', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Kaunos', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Kaunos', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Lampetos', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Lampetos', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Menestheus', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Menestheus', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Nyx', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Nyx', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Orthaia', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Orthaia', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Perseus', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Perseus', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Quyou', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Quyou', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Rhadamanthys', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Rhadamanthys', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Silvanus', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Silvanus', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Thamyris', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Thamyris', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Uranos', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Uranos', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Vesta', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Vesta', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Wynefreede', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Wynefreede', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Xuxa', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Xuxa', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Ywain', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Ywain', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
 
-        Personagem::create(['nome'=>'Zephyrus', 'id_classe' => rand(1,12), 'id_raca'=>rand(1,10), 'id_user'=>'1', 
+        Personagem::create(['nome'=>'Zephyrus', 'classe_id' => rand(1,12), 'raca_id'=>rand(1,10), 'user_id'=>'1', 
         'forca' => rand(6,20), 'destreza'=> rand(6,20), 'constituicao'=> rand(6,20), 'inteligencia'=> rand(6,20), 
         'sabedoria'=> rand(6,20), 'carisma'=> rand(6,20), 'vida' => rand(10,20)]);
     }

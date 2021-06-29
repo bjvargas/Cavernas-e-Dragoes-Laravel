@@ -14,7 +14,7 @@ class CreateMagiasTable extends Migration
     public function up()
     {
         Schema::create('magias', function (Blueprint $table) {
-            $table->increments('id'); // Death
+            $table->id(); // Death
             $table->string('nome');  //Nome da Magia
             $table->string('descricao'); //Descricao
             $table->integer('level'); //level da magia
