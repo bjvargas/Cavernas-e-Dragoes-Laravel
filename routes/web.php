@@ -43,7 +43,7 @@ Route::get('/equipamentos', [EquipamentosController::class, 'listar'])
 
 //Lista de Magias do Personagem
 Route::resource('/exibirListaMagias', ListaMagiasController::class);
-Route::post('/listamagias', [ListaMagiasController::class, 'store']);
+Route::post('/lista_magias', [ListaMagiasController::class, 'store']);
 
 //Lista de Equipamentos do Personagem
 Route::resource('/exibirListaEquipamentos', ListaEquipamentosController::class);

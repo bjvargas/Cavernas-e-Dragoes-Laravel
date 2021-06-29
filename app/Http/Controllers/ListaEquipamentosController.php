@@ -36,7 +36,7 @@ class ListaEquipamentosController extends Controller
        
        $equipamentos = DB::table('equipamentos')
        ->join('lista_equipamentos', 'equipamentos.id', '=', 'lista_equipamentos.equipamento_id')
-       ->select('equipamentos.*', 'lista_equipamentos.id as id_cadastro',  'listaequipamentos.quantidade')
+       ->select('equipamentos.*', 'lista_equipamentos.id as id_cadastro',  'lista_equipamentos.quantidade')
        ->where('lista_equipamentos.personagem_id', '=', $id)
        ->get();      
     
@@ -51,9 +51,9 @@ class ListaEquipamentosController extends Controller
     {
        
        $equipamentos = DB::table('equipamentos')
-       ->join('listaequipamentos', 'equipamentos.id', '=', 'listaequipamentos.id_equipamento')
-       ->select('equipamentos.*', 'listaequipamentos.id as id_cadastro',  'listaequipamentos.quantidade')
-       ->where('listaequipamentos.id_personagem', '=', $id)
+       ->join('lista_equipamentos', 'equipamentos.id', '=', 'lista_equipamentos.equipamento_id')
+       ->select('equipamentos.*', 'lista_equipamentos.id as id_cadastro',  'lista_equipamentos.quantidade')
+       ->where('lista_equipamentos.personagem_id', '=', $id)
        ->where('equipamentos.tipo', '=', $tipo)
        ->get();
 
@@ -73,8 +73,8 @@ class ListaEquipamentosController extends Controller
     public function store(ListaEquipamentoRequest $request)
     {      
         $cad=$this->objListaEquipamento->create([
-            'id_personagem'=>$request->id_personagem,
-            'id_equipamento'=>$request->id_equipamento,
+            'personagem_id'=>$request->personagem_id,
+            'equipamento_id'=>$request->equipamento_id,
             'quantidade'=>$request->quantidade
             ]);
             if ($cad) {
@@ -84,10 +84,10 @@ class ListaEquipamentosController extends Controller
 
     public function remover(ListaEquipamentoRequest $request)
     {
-        $equipamentos = DB::table('listaequipamentos')
-            ->select('listaequipamentos.*')
-            ->where('listaequipamentos.id_equipamento', '=', $request->id_equipamento)
-            ->where('listaequipamentos.id_personagem', '=', $request->id_personagem)
+        $equipamentos = DB::table('lista_equipamentos')
+            ->select('lista_equipamentos.*')
+            ->where('lista_equipamentos.equipamento_id', '=', $request->equipamento_id)
+            ->where('lista_equipamentos.personagem_id', '=', $request->personagem_id)
             ->get();
       
             $equip = $equipamentos[0];
@@ -96,7 +96,7 @@ class ListaEquipamentosController extends Controller
             }
             $this->objUtil->atualizarQuantidade($request, $equip->id, $equip->quantidade, 2);
 
-            return redirect(url("exibirListaEquipamentosPorTipo/$equip->id_personagem/$request->tipo"));
+            return redirect(url("exibirListaEquipamentosPorTipo/$equip->personagem_id/$request->tipo"));
         
     }
 
@@ -108,29 +108,29 @@ class ListaEquipamentosController extends Controller
         if($request->quantidade > 9999){
             return redirect()->back()->withErrors('Limite máximo: 9999');
         }
-        $equipamento = DB::table('listaequipamentos')
-            ->select('listaequipamentos.*')
-            ->where('listaequipamentos.id_equipamento', '=', $request->id_equipamento)
-            ->where('listaequipamentos.id_personagem', '=', $request->id_personagem)
+        $equipamento = DB::table('lista_equipamentos')
+            ->select('lista_equipamentos.*')
+            ->where('lista_equipamentos.equipamento_id', '=', $request->equipamento_id)
+            ->where('lista_equipamentos.personagem_id', '=', $request->personagem_id)
             ->count();         
 
         if ($equipamento == 0) {
             $cad = $this->store($request);
             if ($cad) {
-                return redirect(url("exibirListaEquipamentosPorTipo/$cad->id_personagem/$request->tipo"));
+                return redirect(url("exibirListaEquipamentosPorTipo/$cad->personagem_id/$request->tipo"));
             }
         } else {
             
-            $equipamentos = DB::table('listaequipamentos')
-            ->select('listaequipamentos.*')
-            ->where('listaequipamentos.id_equipamento', '=', $request->id_equipamento)
-            ->where('listaequipamentos.id_personagem', '=', $request->id_personagem)
+            $equipamentos = DB::table('lista_equipamentos')
+            ->select('lista_equipamentos.*')
+            ->where('lista_equipamentos.equipamento_id', '=', $request->equipamento_id)
+            ->where('lista_equipamentos.personagem_id', '=', $request->personagem_id)
             ->get();  
 
             $equip = $equipamentos[0];
             $this->objUtil->atualizarQuantidade($request, $equip->id, $equip->quantidade, 1);
 
-            return redirect(url("exibirListaEquipamentosPorTipo/$equip->id_personagem/$request->tipo"));
+            return redirect(url("exibirListaEquipamentosPorTipo/$equip->personagem_id/$request->tipo"));
         }
     }
 

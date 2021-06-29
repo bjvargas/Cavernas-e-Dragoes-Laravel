@@ -44,11 +44,11 @@ class ListaMagiasController extends Controller
     public function store(ListaMagiaRequest $request)
     {
         $cad = $this->objListaMagia->create([
-            'id_personagem' => $request->id_personagem,
-            'id_magia' => $request->id_magia
+            'personagem_id' => $request->personagem_id,
+            'magia_id' => $request->magia_id
         ]);
         if ($cad) {
-            return redirect(url("exibirListaMagias/$cad->id_personagem"));
+            return redirect(url("exibirListaMagias/$cad->personagem_id"));
         }
     }
 

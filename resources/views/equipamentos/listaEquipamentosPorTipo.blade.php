@@ -11,12 +11,12 @@
   <form name="formListaEquipamento" id="formListaEquipamento" method="post" action="{{url("criarAdicionar")}}">
     @csrf
     <Label>Equipamentos do tipo {{$todosEquipamentos[0]->tipo}}</LAbel>
-    <select class="form-control" name="id_equipamento" id="id_equipamento" required>
+    <select class="form-control" name="equipamento_id" id="equipamento_id" required>
       @foreach($todosEquipamentos as $equip)
       <option value="{{$equip->id}}">{{$equip->nome}} </option>
       @endforeach
     </select><br>
-    <input type="hidden" name="id_personagem" id="id_personagem" value="{{$personagem->id}}" />
+    <input type="hidden" name="personagem_id" id="personagem_id" value="{{$personagem->id}}" />
     <input type="hidden" name="tipo" id="tipo" value=" {{$todosEquipamentos[0]->tipo}}" />
 
     <Label>Informe a quantidade: </Label>
@@ -58,8 +58,8 @@
           </a>
           <form name="formListaEquipamentoRemov" id="formListaEquipamentoRemov" method="post" action="{{url("remover")}}">
             @csrf
-            <input type="hidden" name="id_personagem" id="id_personagem" value="{{$personagem->id}}" />
-            <input type="hidden" name="id_equipamento" id="id_equipamento" value="{{$equipamento->id}}" />
+            <input type="hidden" name="personagem_id" id="personagem_id" value="{{$personagem->id}}" />
+            <input type="hidden" name="equipamento_id" id="equipamento_id" value="{{$equipamento->id}}" />
             <input type="hidden" name="tipo" id="tipo" value=" {{$equipamento->tipo}}" />
 
            
