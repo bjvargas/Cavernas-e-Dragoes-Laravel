@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EquipamentoRequest;
 use Illuminate\Pagination\Paginator;
-use App\Models\Equipamentos;
-use App\Models\listaequipamentos;
+use App\Models\Equipamento;
+use App\Models\ListaEquipamento;
 use Illuminate\Http\Request;
 
 
@@ -17,11 +17,12 @@ class EquipamentosController extends Controller
     private $objEquipamento;
     private $objListaEquipamentos;
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->objEquipamento = new Equipamentos();
-        $this->objListaEquipamentos = new listaequipamentos();
+    public function __construct(){
+
+    $this->middleware('auth');
+    $this->objEquipamento=new Equipamento();
+    $this->objListaEquipamentos=new ListaEquipamento();
+
     }
 
     public function listar()
@@ -104,15 +105,15 @@ class EquipamentosController extends Controller
             ->paginate(10);
 
         if ($busca->buscaE == 'buscaNome') {
-            $listaEquipamentos = Equipamentos::where('nome', 'LIKE', "%{$busca->buscar}%")
+            $listaEquipamentos = Equipamento::where('nome', 'LIKE', "%{$busca->buscar}%")
                 ->orderByRaw('id')
                 ->paginate(5);
         } else if ($busca->buscaE == 'buscaTipo') {
-            $listaEquipamentos = Equipamentos::where('tipo', 'LIKE', "%{$busca->buscar}%")
+            $listaEquipamentos = Equipamento::where('tipo', 'LIKE', "%{$busca->buscar}%")
                 ->orderByRaw('id')
                 ->paginate(5);
         } else if ($busca->buscaE == 'buscaPreco') {
-            $listaEquipamentos = Equipamentos::where('preco', 'LIKE', "%{$busca->buscar}%")
+            $listaEquipamentos = Equipamento::where('preco', 'LIKE', "%{$busca->buscar}%")
                 ->orderByRaw('id')
                 ->paginate(5);
         }

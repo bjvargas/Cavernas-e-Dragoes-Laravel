@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ListaEquipamentoRequest;
-use App\Models\Equipamentos;
-use App\Models\listaequipamentos;
+use App\Models\Equipamento;
+use App\Models\ListaEquipamento;
 use App\Models\Personagem;
 use Illuminate\Support\Facades\DB;
 
@@ -18,10 +18,11 @@ class ListaEquipamentosController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->objListaEquipamento = new listaequipamentos();
-        $this->objPersonagem=new Personagem();
-        $this->objEquipamento=new Equipamentos();
         $this->objUtil=new Util();
+        $this->objListaEquipamento = new ListaEquipamento();
+        $this->objPersonagem=new Personagem();
+        $this->objEquipamento=new Equipamento();
+
     }
 
      /**
@@ -34,9 +35,9 @@ class ListaEquipamentosController extends Controller
     {
        
        $equipamentos = DB::table('equipamentos')
-       ->join('listaequipamentos', 'equipamentos.id', '=', 'listaequipamentos.id_equipamento')
-       ->select('equipamentos.*', 'listaequipamentos.id as id_cadastro',  'listaequipamentos.quantidade')
-       ->where('listaequipamentos.id_personagem', '=', $id)
+       ->join('lista_equipamentos', 'equipamentos.id', '=', 'lista_equipamentos.equipamento_id')
+       ->select('equipamentos.*', 'lista_equipamentos.id as id_cadastro',  'listaequipamentos.quantidade')
+       ->where('lista_equipamentos.personagem_id', '=', $id)
        ->get();      
     
        $todosEquipamentosOutro= $this->objEquipamento->where('tipo', 'Outro');

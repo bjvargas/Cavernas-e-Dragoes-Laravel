@@ -43,6 +43,6 @@ class User extends Authenticatable
 
     public function relPersonagens()
     {
-        return $this->hasMany('App\Models\Personagem', 'id_user');
+        return $this->hasMany('App\Models\Personagem', 'user_id');
     }
 }

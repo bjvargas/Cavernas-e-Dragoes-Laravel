@@ -7,14 +7,14 @@
 
 @section('conteudo')
 
-<form name="formListaMagia" id="formListaMagia" method="post" action="{{url("listamagias")}}">
+<form name="formListaMagia" id="formListaMagia" method="post" action="{{url("lista_magias")}}">
   @csrf
   <div class="form-group">
-    <select class="form-control" name="id_magia" id="id_magia" required>
+    <select class="form-control" name="magia_id" id="magia_id" required>
       @foreach($todasMagias as $magic)
       <option value="{{$magic->id}}">{{$magic->nome}}</option>      
       @endforeach
-      <input type="hidden" name="id_personagem" id="id_personagem" value="{{$personagem->id}}" />
+      <input type="hidden" name="personagem_id" id="personagem_id" value="{{$personagem->id}}" />
     </select>
   </div><br>
   <div class="text-center mt-3 mb-4">
