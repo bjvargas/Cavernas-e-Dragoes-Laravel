@@ -52,7 +52,7 @@
             <button class="btn btn-dark"> Visualizar </button>
           </a>
 
-          <a href="{{url("destroyMagiaPersonagem/$magia->id_cadastro")}}" class="js-delMP">
+          <a href="{{url("exibirListaMagias/$magia->id_cadastro")}}" class="js-delMP">
             <button class="btn btn-danger"> Deletar Magia do Char </button>
           </a>
 

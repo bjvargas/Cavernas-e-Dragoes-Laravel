@@ -35,7 +35,7 @@
         <td>{{$equipamento->tipo}}</td>
         <td>{{$equipamento->ca}}</td>
         <td>{{$equipamento->dano}}</td>
-        <td>{{$equipamento->qtd}}</td>
+        <td>{{$equipamento->quantidade}}</td>
         <td>{{$equipamento->propriedade}}</td>
         <td>
           <a href="{{url("equipamentos/$equipamento->id")}}">

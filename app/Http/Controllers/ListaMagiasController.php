@@ -14,23 +14,12 @@ class ListaMagiasController extends Controller
 
     public function __construct()
     {
+        $this->middleware('auth');
         $this->objListaMagia = new listamagias();
-        $this->objPersonagem=new Personagem();
-
+        $this->objPersonagem = new Personagem();
     }
 
-    public function store(ListaMagiaRequest $request)
-    {
-        $cad = $this->objListaMagia->create([
-            'id_personagem' => $request->id_personagem,
-            'id_magia' => $request->id_magia
-        ]);
-        if ($cad) {
-            return redirect(url("exibirListaMagias/$cad->id_personagem"));
-        }
-    }
-
-    public function exibirListaMagias($id)
+    public function show($id)
     {
 
         $magias = DB::table('magias')
@@ -49,5 +38,23 @@ class ListaMagiasController extends Controller
 
         $personagem = $this->objPersonagem->find($id);
         return view('magia.listaMagiasDoPersonagem', compact('personagem', 'magias', 'todasMagias'));
+    }
+
+
+    public function store(ListaMagiaRequest $request)
+    {
+        $cad = $this->objListaMagia->create([
+            'id_personagem' => $request->id_personagem,
+            'id_magia' => $request->id_magia
+        ]);
+        if ($cad) {
+            return redirect(url("exibirListaMagias/$cad->id_personagem"));
+        }
+    }
+
+    public function destroy($id)
+    {
+        $del = $this->objListaMagia->destroy($id);
+        return ($del) ? "SIM" : "NAO";
     }
 }
